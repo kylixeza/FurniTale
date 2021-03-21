@@ -1,2 +1,2 @@
 # FurniGo
-:close: raion intership on progress
+⛔ raion intership on progress
