@@ -1,4 +1,4 @@
-package com.raion.furnigo
+package com.raion.furnitale
 
 import org.junit.Test
 

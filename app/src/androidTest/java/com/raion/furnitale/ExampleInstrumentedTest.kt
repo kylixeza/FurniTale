@@ -1,4 +1,4 @@
-package com.raion.furnigo
+package com.raion.furnitale
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
