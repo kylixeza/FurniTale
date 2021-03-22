@@ -25,6 +25,7 @@ buildscript {
 
         //Lifecycle
         lifecycle_version = "2.3.0"
+        lifecycle_extensions = "2.2.0"
 
         //Network
         retrofit_version = "2.9.0"
