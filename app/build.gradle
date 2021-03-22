@@ -102,7 +102,7 @@ dependencies {
     implementation "com.airbnb.android:lottie:$lottie_version"
 
     //Custom UI
-    implementation "com.github.Shashank02051997:FancyToast-Android:$fancy_toast_version"
+    //implementation "com.github.Shashank02051997:FancyToast-Android:$fancy_toast_version"
     implementation "com.victor:lib:$victor_rotate_loading_version"
 
 }
