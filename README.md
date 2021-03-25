@@ -2,7 +2,7 @@
 [![KylixEza](https://circleci.com/gh/KylixEza/FurniTale.svg?style=shield)](https://circleci.com/gh/KylixEza/FurniTale)
 <p>⛔ raion intership on progress</p>
 
-# Our Teams:
+# Our Team Members
 <ol>
   <li>Dhamar Santi --> Designer</li>
   <li>Rimba Diza Nurrohman --> Artist</li>
