@@ -1,4 +1,4 @@
-package com.raion.furnitale
+package com.raion.furnitale.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
