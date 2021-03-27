@@ -15,6 +15,7 @@
         android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="16pt"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,13 +46,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.397" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_width="174dp"
+        android:layout_height="36dp"
         android:text="@string/login_sign_in"
         android:textAlignment="center"
-        android:textSize="6pt"
+        android:textSize="4pt"
+        android:textColor="@color/white"
         android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,34 +84,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_login_decision"/>
 
-   <!-- <ImageButton
-        android:id="@+id/ib_login_facebook"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:src="@drawable/facebook"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.582"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.648" />-->
-
-    <Button
-        android:id="@+id/btn_register_account"
-        android:layout_width="202dp"
-        android:layout_height="38dp"
+    <TextView
+        android:id="@+id/tv_register_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="24dp"
+        android:textSize="6pt"
         android:text="@string/register_account"
-        android:textSize="4pt"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.743" />
+        app:layout_constraintTop_toBottomOf="@id/ib_login_google" />
 
-    <Button
+    <TextView
+        android:id="@+id/tv_register_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/register_click"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/tv_register_account"
+        app:layout_constraintTop_toTopOf="@id/tv_register_account"
+        app:layout_constraintBottom_toBottomOf="@id/tv_register_account"/>
+
+    <!--<Button
         android:id="@+id/btn_forget_password"
         android:layout_width="150dp"
         android:layout_height="30dp"
@@ -122,6 +121,6 @@
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.797" />
+        app:layout_constraintVertical_bias="0.797" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

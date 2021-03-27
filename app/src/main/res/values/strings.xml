@@ -10,7 +10,8 @@
     <string name="title_sign_in">Login</string>
     <string name="email_and_number">Email or Phone Number</string>
     <string name="login_sign_in">Login</string>
-    <string name="register_account">Do not have an account? Register</string>
+    <string name="register_account">Do not have an account?</string>
+    <string name="register_click">Register</string>
     <string name="forget_password">Forget Password?</string>
     <string name="login_decision">or login with</string>
 

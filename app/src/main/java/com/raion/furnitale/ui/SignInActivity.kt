@@ -47,7 +47,7 @@ class SignInActivity : AppCompatActivity() {
             signIn()
         }
 
-        btn_login.setOnClickListener {
+        tv_register_click.setOnClickListener {
             FancyToast.makeText(this, "You just can login with google acoount", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false)
         }
     }
