@@ -16,6 +16,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.raion.furnitale.R
 import com.raion.furnitale.databinding.ActivitySignInBinding
+import com.shashank.sony.fancytoastlib.FancyToast
+import kotlinx.android.synthetic.main.activity_sign_in.*
 import java.lang.Exception
 
 class SignInActivity : AppCompatActivity() {
@@ -40,6 +42,14 @@ class SignInActivity : AppCompatActivity() {
             .build()
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        ib_login_google.setOnClickListener {
+            signIn()
+        }
+
+        btn_login.setOnClickListener {
+            FancyToast.makeText(this, "You just can login with google acoount", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false)
+        }
     }
 
 

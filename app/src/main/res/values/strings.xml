@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">FurniTale</string>
+
+    <!--activity_splash-->
+    <string name="logo_splash">Logo Splash</string>
+    <string name="title_splash">Title Splash</string>
+    <string name="subtitle_splash">Subtitle Splash</string>
+
+    <!--activity_sign_in-->
+    <string name="title_sign_in">Login</string>
+    <string name="email_and_number">Email or Phone Number</string>
+    <string name="login_sign_in">Login</string>
+    <string name="register_account">Do not have an account? Register</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="login_decision">or login with</string>
+
+    <!--bottom_nav_menu-->
+    <string name="home">Home</string>
+    <string name="chat">Chat</string>
+    <string name="cart">Cart</string>
+    <string name="account">Account</string>
+
+    <!--Fragment Welcome-->
+    <string name="hello_home">This is home fragment</string>
+    <string name="hello_chat">This is chat fragment</string>
+    <string name="hello_cart">This is cart fragment</string>
+    <string name="hello_account"> This is account fragment</string>
+
 </resources>

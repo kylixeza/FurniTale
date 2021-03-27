@@ -6,29 +6,36 @@
     android:layout_height="match_parent"
     tools:context="ui.MainActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FURNITALE!"
-        android:textSize="15pt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.119"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="TELLS ALL THE TALE"
-        android:textSize="10pt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
+    <ImageView
+        android:id="@+id/iv_logo_splash"
+        android:layout_width="161dp"
+        android:layout_height="161dp"
+        android:src="@drawable/logo_splash"
+        android:layout_marginTop="200dp"
+        android:contentDescription="@string/logo_splash"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <ImageView
+        android:id="@+id/iv_title_splash"
+        android:layout_width="292dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/title_splash"
+        android:contentDescription="@string/title_splash"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_logo_splash"/>
 
+    <ImageView
+        android:id="@+id/iv_subtitle_splash"
+        android:layout_width="278dp"
+        android:layout_height="30dp"
+        android:src="@drawable/subtitle_splash"
+        android:contentDescription="@string/subtitle_splash"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_title_splash"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

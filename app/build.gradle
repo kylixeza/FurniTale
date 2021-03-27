@@ -52,7 +52,6 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "com.google.android.material:material:$material_version"
     implementation "androidx.preference:preference-ktx:$preference_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.preference:preference-ktx:1.1.1'
     testImplementation "junit:junit:$junit_version"
@@ -113,7 +112,7 @@ dependencies {
 
 
     //Custom UI
-    //implementation "com.github.Shashank02051997:FancyToast-Android:$fancy_toast_version"
+    implementation "com.github.Shashank02051997:FancyToast-Android:$fancy_toast_version"
     implementation "com.victor:lib:$victor_rotate_loading_version"
 
 }

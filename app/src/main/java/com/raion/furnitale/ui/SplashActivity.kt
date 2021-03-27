@@ -11,25 +11,19 @@ class SplashActivity : AppCompatActivity() {
         const val TIME_FOR_SPLASH = 2000L
     }
 
-    private var _splashBinding: ActivitySplashBinding? = null
-    private val splashBinding get() = _splashBinding
+    private lateinit var splashBinding: ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _splashBinding = ActivitySplashBinding.inflate(layoutInflater)
-        setContentView(splashBinding?.root)
+        splashBinding = ActivitySplashBinding.inflate(layoutInflater)
+        setContentView(splashBinding.root)
 
         val splashHandler = Handler(mainLooper)
 
         splashHandler.postDelayed({
-            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            val intent = Intent(this@SplashActivity, SignInActivity::class.java)
             startActivity(intent)
             finish()
         }, TIME_FOR_SPLASH)
-    }
-
-    override fun onDestroy() {
-        _splashBinding = null
-        super.onDestroy()
     }
 }
