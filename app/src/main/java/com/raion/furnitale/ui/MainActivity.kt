@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
+        setSupportActionBar(mainBinding.toolbar)
+
         loadFragment(HomeFragment())
         mainBinding.bottomNav.setOnNavigationItemSelectedListener(bottomNavigationView)
     }

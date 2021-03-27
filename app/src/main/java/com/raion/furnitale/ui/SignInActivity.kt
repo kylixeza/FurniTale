@@ -43,13 +43,18 @@ class SignInActivity : AppCompatActivity() {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        ib_login_google.setOnClickListener {
+        signInBinding?.loginGoogle?.setOnClickListener {
             signIn()
         }
 
-        tv_register_click.setOnClickListener {
-            FancyToast.makeText(this, "You just can login with google acoount", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false)
+        signInBinding?.tvRegisterClick?.setOnClickListener {
+            FancyToast.makeText(this, "You just can login with google account", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
         }
+
+        signInBinding?.btnLogin?.setOnClickListener {
+            FancyToast.makeText(this, "This feature is unavailable right now", FancyToast.LENGTH_SHORT, FancyToast.INFO, false).show()
+        }
+
     }
 
 
