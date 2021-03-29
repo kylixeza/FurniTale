@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav"
+    app:startDestination="@id/home_destination">
+
+    <fragment
+        android:id="@+id/home_destination"
+        android:name="com.raion.furnitale.ui.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_home_destination_to_cart_destination"
+            app:destination="@id/cart_destination"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
+        <action
+            android:id="@+id/action_home_destination_to_account_destination"
+            app:destination="@id/account_destination" />
+        <action
+            android:id="@+id/action_home_destination_to_chat_destination"
+            app:destination="@id/chat_destination" />
+    </fragment>
+    <fragment
+        android:id="@+id/account_destination"
+        android:name="com.raion.furnitale.ui.account.AccountFragment"
+        android:label="@string/account"
+        tools:layout="@layout/account_fragment" />
+    <fragment
+        android:id="@+id/cart_destination"
+        android:name="com.raion.furnitale.ui.cart.CartFragment"
+        android:label="@string/cart"
+        tools:layout="@layout/cart_fragment" />
+    <fragment
+        android:id="@+id/chat_destination"
+        android:name="com.raion.furnitale.ui.chat.ChatFragment"
+        android:label="@string/chat"
+        tools:layout="@layout/chat_fragment" />
+</navigation>
