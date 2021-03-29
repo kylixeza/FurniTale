@@ -54,9 +54,7 @@ class SignInActivity : AppCompatActivity() {
         signInBinding?.btnLogin?.setOnClickListener {
             FancyToast.makeText(this, "This feature is unavailable right now", FancyToast.LENGTH_SHORT, FancyToast.INFO, false).show()
         }
-
     }
-
 
     override fun onStart() {
         super.onStart()

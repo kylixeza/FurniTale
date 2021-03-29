@@ -15,7 +15,7 @@
     <string name="forget_password">Forget Password?</string>
     <string name="login_decision">or login with</string>
 
-    <!--bottom_nav_menu-->
+    <!--Fragments-->
     <string name="home">Home</string>
     <string name="chat">Chat</string>
     <string name="cart">Cart</string>
