@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_home_destination_to_chat_destination"
             app:destination="@id/chat_destination" />
+        <action
+            android:id="@+id/action_home_destination_to_categoryActivity"
+            app:destination="@id/categoryActivity" />
     </fragment>
     <fragment
         android:id="@+id/account_destination"
@@ -39,4 +42,14 @@
         android:name="com.raion.furnitale.ui.chat.ChatFragment"
         android:label="@string/chat"
         tools:layout="@layout/chat_fragment" />
+    <activity
+        android:id="@+id/categoryActivity"
+        android:name="com.raion.furnitale.ui.categories.CategoryActivity"
+        android:label="activity_category"
+        tools:layout="@layout/activity_category" >
+        <argument
+            android:name="index"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </activity>
 </navigation>

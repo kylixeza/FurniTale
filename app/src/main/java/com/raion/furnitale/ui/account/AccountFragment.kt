@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -52,6 +54,13 @@ class AccountFragment : Fragment() {
             accountBinding?.tvNamaProfile?.text = personName
             val personEmail = account.email
             accountBinding?.tvMemberSince?.text = personEmail
+            val avatar = account.photoUrl
+            accountBinding?.let {
+                Glide.with(this)
+                    .load(avatar)
+                    .apply(RequestOptions.circleCropTransform())
+                    .into(it.ivProfile)
+            }
         }
 
         accountBinding?.btnLogout?.setOnClickListener {

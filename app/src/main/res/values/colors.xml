@@ -10,4 +10,5 @@
     <color name="color_primary">#ED7036</color>
     <color name="color_primary_dark">#D05E2A</color>
     <color name="color_accent">#F79564</color>
+    <color name="color_text_dark_green">#1E4844</color>
 </resources>

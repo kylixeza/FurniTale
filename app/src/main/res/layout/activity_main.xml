@@ -22,7 +22,7 @@
         android:layout_height="match_parent"
         android:layout_weight="9"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/bottom_nav"
+        app:navGraph="@navigation/main_nav"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
     <me.ibrahimsn.lib.SmoothBottomBar

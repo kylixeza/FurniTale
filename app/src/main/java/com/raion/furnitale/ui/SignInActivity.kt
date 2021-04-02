@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -68,10 +69,12 @@ class SignInActivity : AppCompatActivity() {
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 val account: GoogleSignInAccount? = task.getResult(ApiException::class.java)
+                signInBinding?.progress?.visibility = View.VISIBLE
                 authWithGoogle(account!!)
             } catch (e: Exception) {
                 e.printStackTrace()
                 Toast.makeText(this, "SignIn Failed", Toast.LENGTH_SHORT).show()
+                signInBinding?.progress?.visibility = View.INVISIBLE
             }
         }
     }
