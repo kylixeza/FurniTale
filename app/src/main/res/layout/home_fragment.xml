@@ -21,7 +21,7 @@
             android:layout_margin="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_logo_home" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_head"
@@ -34,16 +34,6 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
-
-        <ImageView
-            android:id="@+id/iv_logo_home"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_margin="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/Title_Furnitale" />
 
         <ImageButton
             android:id="@+id/ib_livingroom"
