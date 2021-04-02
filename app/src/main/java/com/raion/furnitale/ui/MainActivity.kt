@@ -2,27 +2,20 @@ package com.raion.furnitale.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.fragment.app.Fragment
+import android.view.Menu
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.raion.furnitale.R
 import com.raion.furnitale.databinding.ActivityMainBinding
-import com.raion.furnitale.ui.account.AccountFragment
-import com.raion.furnitale.ui.cart.CartFragment
-import com.raion.furnitale.ui.chat.ChatFragment
-import com.raion.furnitale.ui.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var menu: Menu
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(mainBinding.toolbar)
 
         navController = findNavController(R.id.nav_host)
-        NavigationUI.setupWithNavController(mainBinding.bottomNav, navController)
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -41,5 +33,17 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         navController.navigateUp(appBarConfiguration)
         return super.onSupportNavigateUp()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.bottom_nav_menu, menu)
+        menu?.apply {
+            findItem(R.id.home_destination).isVisible = false
+            findItem(R.id.chat_destination).isVisible = false
+            findItem(R.id.cart_destination).isVisible = false
+            findItem(R.id.account_destination).isVisible = false    
+        }
+        mainBinding.bottomNav.setupWithNavController(menu!!, navController)
+        return true
     }
 }

@@ -21,6 +21,12 @@ data class ProductEntity(
     @ColumnInfo(name = "sub_title")
     val subTitle: String?,
 
+    @ColumnInfo(name = "image_product")
+    val imageProduct: String?,
+
+    @ColumnInfo(name = "image_seller")
+    val imageSeller: String?,
+
     @ColumnInfo(name = "category")
     val category: String?,
 

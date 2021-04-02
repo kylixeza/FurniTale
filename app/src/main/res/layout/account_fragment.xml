@@ -136,7 +136,7 @@
         android:layout_width="64dp"
         android:layout_height="36dp"
         android:layout_marginTop="32dp"
-        android:background="@color/white"
+        android:background="@android:color/white"
         android:text="@string/logout"
         android:textSize="4pt"
         app:layout_constraintEnd_toEndOf="@+id/ib_contact_us"

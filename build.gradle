@@ -21,10 +21,10 @@ buildscript {
         glide_version = "4.11.0"
 
         //Navigation
-        navigation_version = "2.3.2"
+        navigation_version = "2.3.4"
 
         //Lifecycle
-        lifecycle_version = "2.3.0"
+        lifecycle_version = "2.3.1"
         lifecycle_extensions = "2.2.0"
 
         //Network

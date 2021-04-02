@@ -43,6 +43,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'BASE_URL', BASE_URL
+    }
 }
 
 dependencies {
@@ -118,5 +122,8 @@ dependencies {
     //Custom UI
     implementation "com.github.Shashank02051997:FancyToast-Android:$fancy_toast_version"
     implementation "com.victor:lib:$victor_rotate_loading_version"
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.6'
+    compile 'com.github.florent37:bubbletab:1.0.2'
+
 
 }
