@@ -1,7 +1,10 @@
 package com.raion.furnitale.core.di
 
 import com.raion.furnitale.BuildConfig
-import com.raion.furnitale.core.data.source.remote.network.ApiService
+import com.raion.furnitale.core.data.ProductRepository
+import com.raion.furnitale.core.data.source.remote.RemoteDataSource
+import com.raion.furnitale.core.data.source.remote.network.DummyApiService
+import com.raion.furnitale.core.domain.repository.IProductRepository
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -10,21 +13,17 @@ import java.util.concurrent.TimeUnit
 
 private const val BASE_URL = BuildConfig.BASE_URL
 
-val networkModule = module {
+val databaseModule = module {
 
-    single {
-        OkHttpClient.Builder()
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
-            .build()
-    }
+}
 
-    single {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(get())
-            .build()
-        retrofit.create(ApiService::class.java)
+
+val repositoryModule = module {
+    factory { DummyApiService() }
+    single { RemoteDataSource(get()) }
+    single<IProductRepository> {
+        ProductRepository(
+            get()
+        )
     }
 }

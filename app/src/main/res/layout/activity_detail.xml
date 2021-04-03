@@ -10,29 +10,29 @@
             type="com.raion.furnitale.core.domain.model.Product"/>
     </data>
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
+        <!--<ImageButton
             android:id="@+id/imageButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:src="@drawable/abc_vector_test"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />-->
 
         <ImageView
             android:id="@+id/iv_image_product"
             android:layout_width="match_parent"
             android:layout_height="320dp"
-            android:src="@drawable/ic_launcher_background"
+            app:product='@{data.imageProduct ?? ""}'
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background"/>
 
         <TextView
             android:id="@+id/tv_title"
@@ -75,15 +75,16 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_subTitle"
             tools:text="Ini Harga" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/iv_image_seller"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="22dp"
-            android:background="@drawable/ic_account"
+            app:seller='@{data.imageSeller ?? ""}'
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_price" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_price"
+            tools:src="@drawable/ic_account"/>
 
         <TextView
             android:id="@+id/tv_storeName"
@@ -107,12 +108,17 @@
             app:layout_constraintTop_toTopOf="@+id/tv_dikirim_dari"
             tools:text="ini city" />
 
-        <ImageButton
+        <TextView
             android:id="@+id/ib_visit_store"
-            android:layout_width="64dp"
+            android:layout_width="84dp"
             android:layout_height="32dp"
-            android:background="@drawable/ic_launcher_background"
             android:layout_marginEnd="16dp"
+            android:background="@color/color_text_dark_green"
+            android:text="@string/visit_store"
+            android:textColor="@android:color/white"
+            android:shadowColor="@android:color/white"
+            android:shadowRadius="8"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="@+id/iv_image_seller"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/iv_image_seller" />
@@ -136,16 +142,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_image_seller"/>
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{data.description}"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/tv_about"
-            app:layout_constraintTop_toBottomOf="@+id/tv_about"
-            tools:text="deskripsi disini"/>
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.description}"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintStart_toStartOf="@+id/tv_about"
+                app:layout_constraintTop_toBottomOf="@+id/tv_about"
+                tools:text="deskripsi disini"/>
 
+<!--
         <TextView
             android:id="@+id/tv_rating"
             android:layout_width="wrap_content"
@@ -185,6 +194,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/ib_packing_detail"
             app:layout_constraintStart_toEndOf="@+id/ib_packing_detail"
             app:layout_constraintTop_toTopOf="@+id/ib_packing_detail" />
+-->
 
         <include
             android:id="@+id/error_layout"

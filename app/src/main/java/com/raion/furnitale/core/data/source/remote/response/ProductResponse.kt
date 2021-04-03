@@ -3,33 +3,33 @@ package com.raion.furnitale.core.data.source.remote.response
 import com.google.gson.annotations.SerializedName
 
 data class ProductResponse (
-    @field: SerializedName("id")
+    @SerializedName("id")
     val id: Int? = 0,
 
-    @field: SerializedName("title")
+    @SerializedName("title")
     val title: String? = null,
 
-    @field: SerializedName("sub_title")
+    @SerializedName("sub_title")
     val subTitle: String? = null,
 
-    @field: SerializedName("image_product")
+    @SerializedName("image_product")
     val imageProduct: String? = null,
 
-    @field: SerializedName("image_seller")
+    @SerializedName("image_seller")
     val imageSeller: String? = null,
 
-    @field: SerializedName("category")
+    @SerializedName("category")
     val category: String? = null,
 
-    @field: SerializedName("price")
+    @SerializedName("price")
     val price: String? = null,
 
-    @field: SerializedName("store_name")
+    @SerializedName("store_name")
     val storeName: String? = null,
 
-    @field: SerializedName("city")
+    @SerializedName("city")
     val city: String? = null,
 
-    @field: SerializedName("description")
+    @SerializedName("description")
     val description: String? = null
 )

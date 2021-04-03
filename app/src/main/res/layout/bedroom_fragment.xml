@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.categories.bedroom.BedroomFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_bed_room" />
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/rv_bedroom"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
 
 </FrameLayout>

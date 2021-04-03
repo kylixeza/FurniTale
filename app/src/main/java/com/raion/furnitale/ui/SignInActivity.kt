@@ -49,11 +49,11 @@ class SignInActivity : AppCompatActivity() {
         }
 
         signInBinding?.tvRegisterClick?.setOnClickListener {
-            FancyToast.makeText(this, "You just can login with google account", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
+            FancyToast.makeText(this,"This feature is unavailable right now", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
         }
 
         signInBinding?.btnLogin?.setOnClickListener {
-            FancyToast.makeText(this, "This feature is unavailable right now", FancyToast.LENGTH_SHORT, FancyToast.INFO, false).show()
+            FancyToast.makeText(this, "You just can login with google account",  FancyToast.LENGTH_SHORT, FancyToast.INFO, false).show()
         }
     }
 
@@ -73,8 +73,8 @@ class SignInActivity : AppCompatActivity() {
                 authWithGoogle(account!!)
             } catch (e: Exception) {
                 e.printStackTrace()
-                Toast.makeText(this, "SignIn Failed", Toast.LENGTH_SHORT).show()
                 signInBinding?.progress?.visibility = View.INVISIBLE
+                Toast.makeText(this, "SignIn Failed", Toast.LENGTH_SHORT).show()
             }
         }
     }

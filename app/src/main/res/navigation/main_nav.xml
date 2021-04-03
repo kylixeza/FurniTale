@@ -52,4 +52,18 @@
             app:argType="integer"
             android:defaultValue="0" />
     </activity>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.raion.furnitale.ui.detail.DetailFragment"
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment" />
+    <fragment
+        android:id="@+id/livingRoomFragment"
+        android:name="com.raion.furnitale.ui.categories.livingroom.LivingRoomFragment"
+        android:label="living_room_fragment"
+        tools:layout="@layout/living_room_fragment" >
+        <action
+            android:id="@+id/action_livingRoomFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>

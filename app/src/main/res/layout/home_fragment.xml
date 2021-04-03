@@ -66,34 +66,34 @@
             app:layout_constraintTop_toTopOf="@+id/ib_livingroom" />
 
         <ImageButton
+            android:id="@+id/ib_accessories"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/ic_accessories"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_outdoor"
+            app:layout_constraintStart_toEndOf="@+id/ib_outdoor"
+            app:layout_constraintTop_toTopOf="@+id/ib_outdoor" />
+
+        <ImageButton
             android:id="@+id/ib_bathroom"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="8dp"
             android:background="@drawable/ic_bathroom"
-            app:layout_constraintBottom_toBottomOf="@+id/ib_accessories"
-            app:layout_constraintStart_toEndOf="@+id/ib_accessories"
-            app:layout_constraintTop_toTopOf="@+id/ib_accessories" />
-
-        <ImageButton
-            android:id="@+id/ib_outdoor"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/ic_outdoor"
             app:layout_constraintBottom_toBottomOf="@+id/ib_kitchen"
             app:layout_constraintStart_toEndOf="@+id/ib_kitchen"
             app:layout_constraintTop_toTopOf="@+id/ib_kitchen" />
 
         <ImageButton
-            android:id="@+id/ib_accessories"
+            android:id="@+id/ib_outdoor"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="8dp"
-            android:background="@drawable/ic_accessories"
-            app:layout_constraintBottom_toBottomOf="@+id/ib_outdoor"
-            app:layout_constraintStart_toEndOf="@+id/ib_outdoor"
-            app:layout_constraintTop_toTopOf="@+id/ib_outdoor"
+            android:background="@drawable/ic_outdoor"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_bathroom"
+            app:layout_constraintStart_toEndOf="@+id/ib_bathroom"
+            app:layout_constraintTop_toTopOf="@+id/ib_bathroom"
             app:layout_constraintVertical_bias="0.0" />
 
         <androidx.recyclerview.widget.RecyclerView

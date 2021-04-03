@@ -6,27 +6,53 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import com.raion.furnitale.R
+import com.raion.furnitale.core.data.Resource
+import com.raion.furnitale.core.ui.CategoryAdapter
+import com.raion.furnitale.databinding.BathroomFragmentBinding
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class BathroomFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = BathroomFragment()
-    }
-
-    private lateinit var viewModel: BathroomViewModel
+    private val bathroomViewModel: BathroomViewModel by viewModel()
+    private var _bathRoomBinding: BathroomFragmentBinding? = null
+    private val bathRoomBinding get() = _bathRoomBinding
+    private lateinit var bathRoomAdapter: CategoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.bathroom_fragment, container, false)
+        _bathRoomBinding = BathroomFragmentBinding.inflate(layoutInflater, container, false)
+        return bathRoomBinding?.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(BathroomViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        bathRoomAdapter = activity?.let { CategoryAdapter(it) }!!
+
+        bathRoomBinding?.rvBathroom?.apply {
+            layoutManager = GridLayoutManager(context, 2)
+            adapter = bathRoomAdapter
+        }
+
+        bathroomViewModel.bathroom.observe(viewLifecycleOwner, {
+            when (it) {
+                is Resource.Error -> {
+                }
+                is Resource.Loading -> {
+                }
+                is Resource.Success -> {
+                    it.data?.let { it1 -> bathRoomAdapter.setAll(it1) }
+                }
+            }
+        })
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _bathRoomBinding = null
+    }
 }
