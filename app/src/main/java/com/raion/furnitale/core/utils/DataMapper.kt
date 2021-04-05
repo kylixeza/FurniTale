@@ -22,7 +22,8 @@ object DataMapper {
                 price = response.price,
                 storeName = response.storeName,
                 city = response.city,
-                description = response.description
+                description = response.description,
+                0
             )
             domainArray.add(product)
         }
@@ -41,7 +42,8 @@ object DataMapper {
                 price = input.price,
                 storeName = input.storeName,
                 city = input.city,
-                description = input.description
+                description = input.description,
+                0
             )
         )
 
@@ -58,7 +60,8 @@ object DataMapper {
                 price = entity.price,
                 storeName = entity.storeName,
                 city = entity.city,
-                description = entity.description
+                description = entity.description,
+                totalStuffs = entity.totalStuffs
             )
         }
 
@@ -74,7 +77,8 @@ object DataMapper {
             price = input.price,
             storeName = input.storeName,
             city = input.city,
-            description = input.description
+            description = input.description,
+            totalStuffs = input.totalStuffs
         )
 
     fun mapDomainToEntity(input: Product): ProductEntity =
@@ -89,6 +93,7 @@ object DataMapper {
             price = input.price,
             storeName = input.storeName,
             city = input.city,
-            description = input.description
+            description = input.description,
+            totalStuffs = input.totalStuffs
         )
 }

@@ -1,11 +1,10 @@
 package com.raion.furnitale.core.data.source.local.entity
 
-import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "product_table")
 data class ProductEntity(
 
     @PrimaryKey
@@ -40,5 +39,8 @@ data class ProductEntity(
     val city: String?,
 
     @ColumnInfo(name = "description")
-    val description: String?
+    val description: String?,
+
+    @ColumnInfo(name = "total")
+    val totalStuffs: Int?
 )

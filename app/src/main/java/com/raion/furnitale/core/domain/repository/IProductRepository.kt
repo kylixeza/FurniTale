@@ -13,4 +13,11 @@ interface IProductRepository {
     fun getOutdoorList(): Flow<Resource<List<Product>>>
     fun getAccessoriesList(): Flow<Resource<List<Product>>>
     fun getDetailProduct(id: Int): Flow<Resource<Product>>
+    fun getSelectionProduct(): Flow<Resource<List<Product>>>
+    fun getNewProduct(): Flow<Resource<List<Product>>>
+
+    fun getCartList(userEmail: String?): Flow<List<Product>>
+    fun getTotalStuffs(userEmail: String?): Flow<Product>?
+    suspend fun insertProduct(product: Product)
+    fun updateProduct(product: Product)
 }

@@ -1,5 +1,6 @@
 package com.raion.furnitale.core.data.source.remote
 
+import com.google.android.gms.common.api.Api
 import com.raion.furnitale.core.data.source.remote.network.ApiResponse
 import com.raion.furnitale.core.data.source.remote.network.DummyApiService
 import com.raion.furnitale.core.data.source.remote.response.ProductResponse
@@ -50,5 +51,17 @@ class RemoteDataSource(private val apiService: DummyApiService) {
         flow {
             val productDetail = apiService.getProductDetail(id)
             emit(ApiResponse.Success(productDetail))
+        }.flowOn(Dispatchers.IO)
+
+    fun getSelectionProduct(): Flow<ApiResponse<List<ProductResponse>>> =
+        flow {
+            val selectionArr = apiService.getProductSelection()
+            emit(ApiResponse.Success(selectionArr))
+        }.flowOn(Dispatchers.IO)
+
+    fun getNewProduct(): Flow<ApiResponse<List<ProductResponse>>> =
+        flow {
+            val newArr = apiService.getNewProduct()
+            emit(ApiResponse.Success(newArr))
         }.flowOn(Dispatchers.IO)
 }

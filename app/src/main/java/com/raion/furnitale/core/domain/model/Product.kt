@@ -11,5 +11,6 @@ data class Product(
     val price: String?,
     val storeName: String?,
     val city: String?,
-    val description: String?
+    val description: String?,
+    val totalStuffs: Int?
 )

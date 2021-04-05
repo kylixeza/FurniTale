@@ -1,7 +1,9 @@
 package com.raion.furnitale.utils
 
 import android.app.Application
+import com.raion.furnitale.core.di.databaseModule
 import com.raion.furnitale.core.di.repositoryModule
+import com.raion.furnitale.ui.di.adapterModule
 import com.raion.furnitale.ui.di.useCaseModule
 import com.raion.furnitale.ui.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -17,9 +19,11 @@ class MyApplication: Application() {
             androidContext(this@MyApplication)
             modules(
                 listOf(
+                    databaseModule,
                     repositoryModule,
                     useCaseModule,
-                    viewModelModule
+                    viewModelModule,
+                    adapterModule
                 )
             )
         }

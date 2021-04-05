@@ -58,5 +58,6 @@
     <!--default_layout-->
     <string name="something_going_wrong">something going wrong</string>
     <string name="visit_store">Visit Store</string>
+    <string name="password">Password</string>
 
 </resources>

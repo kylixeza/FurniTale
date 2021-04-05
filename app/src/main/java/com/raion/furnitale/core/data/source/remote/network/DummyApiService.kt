@@ -1,6 +1,7 @@
 package com.raion.furnitale.core.data.source.remote.network
 
 import com.raion.furnitale.core.data.source.remote.response.ProductResponse
+import kotlinx.android.synthetic.main.account_fragment.view.*
 
 class DummyApiService {
 
@@ -57,7 +58,7 @@ class DummyApiService {
                 3,
                 "Rak Susun Serbaguna",
                 "Rak Serbaguna Rak Dinding Dekorasi Ruang Tamu 3 Tingkat",
-                "https://user-images.githubusercontent.com/81003299/113385337-23dbc800-93b2-11eb-9161-513482b8716c",
+                "https://user-images.githubusercontent.com/81003299/113385337-23dbc800-93b2-11eb-9161-513482b8716c.png",
                 "https://user-images.githubusercontent.com/81003299/113385043-7ff21c80-93b1-11eb-8410-9cb24faf602b.png",
                 "Living Room",
                 "Rp 52.000,-",
@@ -620,4 +621,24 @@ class DummyApiService {
     }
 
     fun getProductDetail(id: Int): ProductResponse = getAllProductsList()[id]
+
+    fun getProductSelection(): List<ProductResponse> {
+        val listSelection = ArrayList<ProductResponse>()
+        for (index in 0 until 10 step 2) {
+            listSelection.add(
+                getAllProductsList()[index]
+            )
+        }
+        return listSelection
+    }
+
+    fun getNewProduct(): List<ProductResponse> {
+        val listNewProduct = ArrayList<ProductResponse>()
+        for (index in 0 until 30 step 5) {
+            listNewProduct.add(
+                getAllProductsList()[index]
+            )
+        }
+        return listNewProduct
+    }
 }

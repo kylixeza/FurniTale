@@ -104,6 +104,10 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
+    //Database Encryption
+    implementation "net.zetetic:android-database-sqlcipher:$sqlciper_version"
+    implementation "androidx.sqlite:sqlite-ktx:$sqlite_version"
+
     //Coroutine Flow
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
