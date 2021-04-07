@@ -137,19 +137,15 @@ class ProductRepository(
         }
 
 
-    override fun getTotalStuffs(userEmail: String?): Flow<Product>? =
-        localDataSource.getTotalStuffs(userEmail)?.map {
+    override fun getTotalStuffs(key: String?): Flow<Product>? =
+        localDataSource.getTotalStuffs(key)?.map {
             DataMapper.mapEntityToDomain(it)
         }
 
-    override suspend fun insertProduct(product: Product) {
-        if (localDataSource.getTotalStuffs(product.userEmail) == null) {
-            val data = DataMapper.mapDomainToEntity(product)
-            localDataSource.insertProduct(data)
-        } else {
-            updateProduct(product)
-        }
 
+    override suspend fun insertProduct(product: Product) {
+        val data = DataMapper.mapDomainToEntity(product)
+        localDataSource.insertProduct(data)
     }
 
     override fun updateProduct(product: Product) {

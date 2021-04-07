@@ -119,10 +119,4 @@ class HomeFragment : Fragment() {
             }
         })
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _homeBinding = null
-    }
-
 }

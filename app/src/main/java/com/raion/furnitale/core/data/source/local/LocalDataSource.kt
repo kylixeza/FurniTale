@@ -8,7 +8,9 @@ class LocalDataSource(private val productDao: ProductDao) {
 
     fun getCartList(userEmail: String?): Flow<List<ProductEntity>> = productDao.getCartList(userEmail)
 
-    fun getTotalStuffs(userEmail: String?): Flow<ProductEntity>? = productDao.getTotalStuffs(userEmail)
+    fun getTotalStuffs(key: String?): Flow<ProductEntity>? = productDao.getTotalStuffs(key)
+
+    fun checkProductIsExist(key: String?): Flow<ProductEntity>? = productDao.checkProductIsExist(key)
 
     suspend fun insertProduct(product: ProductEntity) = productDao.insertProduct(product)
 

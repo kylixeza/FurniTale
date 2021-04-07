@@ -26,7 +26,7 @@ class ProductInteractor(private val productRepository: IProductRepository): Prod
 
     override fun getCartList(userEmail: String?): Flow<List<Product>> = productRepository.getCartList(userEmail)
 
-    override fun getTotalStuffs(userEmail: String?): Flow<Product>? = productRepository.getTotalStuffs(userEmail)
+    override fun getTotalStuffs(key: String): Flow<Product>? = productRepository.getTotalStuffs(key)
 
     override suspend fun insertProduct(product: Product) = productRepository.insertProduct(product)
 

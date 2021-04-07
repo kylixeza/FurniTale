@@ -2,13 +2,13 @@ package com.raion.furnitale.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.navigation.navArgs
-import com.raion.furnitale.R
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.raion.furnitale.core.data.Resource
 import com.raion.furnitale.core.domain.model.Product
 import com.raion.furnitale.databinding.ActivityDetailBinding
-import com.raion.furnitale.ui.home.HomeFragmentDirections
+import com.shashank.sony.fancytoastlib.FancyToast
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {
@@ -22,15 +22,26 @@ class DetailActivity : AppCompatActivity() {
     private var _detailBinding: ActivityDetailBinding? = null
     private val detailBinding get() = _detailBinding
     private val args: DetailActivityArgs by navArgs()
+    private lateinit var key: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _detailBinding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(detailBinding?.root)
-        observeDetail()
+
+        val account = GoogleSignIn.getLastSignedInAccount(this)
+
+        observeDetail(account)
+
+        detailBinding?.btnAddToCart?.setOnClickListener {
+            product.userEmail = account?.email
+            product.totalStuffs = product.totalStuffs?.plus(1)
+            detailViewModel.insertProduct(product)
+            FancyToast.makeText(this, "Add To Cart", FancyToast.SUCCESS, FancyToast.LENGTH_SHORT, false).show()
+        }
     }
 
-    private fun observeDetail() {
+    private fun observeDetail(account: GoogleSignInAccount?) {
         var id = intent.getIntExtra(ID, -1)
         if (id == -1) {
             id = args.id
@@ -40,6 +51,11 @@ class DetailActivity : AppCompatActivity() {
                 is Resource.Success -> {
                     product = it.data!!
                     detailBinding?.data = it.data
+                    key = String.format("${product.id}${product.userEmail}")
+                    product.key = key
+                    detailViewModel.getTotalStuffs(product.key!!)?.observe(this, { productStuffs ->
+                        product.totalStuffs = productStuffs.totalStuffs
+                    })
                 }
                 is Resource.Error -> {
 

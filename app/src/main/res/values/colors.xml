@@ -11,4 +11,7 @@
     <color name="color_primary_dark">#D05E2A</color>
     <color name="color_accent">#F79564</color>
     <color name="color_text_dark_green">#1E4844</color>
+    <color name="field_semi_dark_green">#52796F</color>
+    <color name="field_semi_dark_green_11percent">#ECF0EF</color>
+    <color name="field_store_city">#CECECE</color>
 </resources>

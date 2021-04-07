@@ -2,9 +2,11 @@ package com.raion.furnitale.ui.di
 
 import com.raion.furnitale.core.domain.usecase.ProductInteractor
 import com.raion.furnitale.core.domain.usecase.ProductUseCase
+import com.raion.furnitale.core.ui.CartAdapter
 import com.raion.furnitale.core.ui.CategoryAdapter
 import com.raion.furnitale.core.ui.NewProductAdapter
 import com.raion.furnitale.core.ui.SelectionAdapter
+import com.raion.furnitale.ui.cart.CartViewModel
 import com.raion.furnitale.ui.categories.accessories.AccessoriesViewModel
 import com.raion.furnitale.ui.categories.bathroom.BathroomViewModel
 import com.raion.furnitale.ui.categories.bedroom.BedroomViewModel
@@ -30,6 +32,7 @@ val viewModelModule = module {
     viewModel { OutdoorViewModel(get()) }
     viewModel { AccessoriesViewModel(get()) }
     viewModel { HomeViewModel(get()) }
+    viewModel { CartViewModel(get()) }
 }
 
 val adapterModule = module {
@@ -43,5 +46,9 @@ val adapterModule = module {
 
     single {
         NewProductAdapter()
+    }
+
+    single {
+        CartAdapter()
     }
 }

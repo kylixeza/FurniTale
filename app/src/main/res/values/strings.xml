@@ -50,10 +50,12 @@
     <string name="terms_amp_policy_privacy"><![CDATA[Terms & Policy Privacy]]></string>
     <string name="contact_us">Contact Us</string>
 
-    <!--detail_fragment-->
+    <!--detail activity-->
     <string name="city">Dikirim dari</string>
-    <string name="about">About The Product</string>
+    <string name="about">Product Description</string>
     <string name="rating">Product Rating</string>
+    <string name="detail_chat">Chat</string>
+    <string name="detail_add_to_cart">+ Add To Cart</string>
 
     <!--default_layout-->
     <string name="something_going_wrong">something going wrong</string>

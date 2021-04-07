@@ -8,39 +8,42 @@ import androidx.room.PrimaryKey
 data class ProductEntity(
 
     @PrimaryKey
+    @ColumnInfo(name = "key")
+    val key: String,
+
     @ColumnInfo(name = "id")
-    val id: Int?,
+    val id: Int? = 0,
 
     @ColumnInfo(name = "user_email")
-    val userEmail: String?,
+    val userEmail: String? = "",
 
     @ColumnInfo(name = "title")
-    val title: String?,
+    val title: String? = "",
 
     @ColumnInfo(name = "sub_title")
-    val subTitle: String?,
+    val subTitle: String? = "",
 
     @ColumnInfo(name = "image_product")
-    val imageProduct: String?,
+    val imageProduct: String? = "",
 
     @ColumnInfo(name = "image_seller")
-    val imageSeller: String?,
+    val imageSeller: String? = "",
 
     @ColumnInfo(name = "category")
-    val category: String?,
+    val category: String? = "",
 
     @ColumnInfo(name = "price")
-    val price: String?,
+    val price: String? = "",
 
     @ColumnInfo(name = "store_name")
-    val storeName: String?,
+    val storeName: String? = "",
 
     @ColumnInfo(name = "city")
-    val city: String?,
+    val city: String? = "",
 
     @ColumnInfo(name = "description")
-    val description: String?,
+    val description: String? = "",
 
     @ColumnInfo(name = "total")
-    val totalStuffs: Int?
+    val totalStuffs: Int? = 0
 )

@@ -1,8 +1,8 @@
 package com.raion.furnitale.core.di
 
 import androidx.room.Room
-import com.raion.furnitale.BuildConfig
 import com.raion.furnitale.core.data.ProductRepository
+import com.raion.furnitale.core.data.source.local.LocalDataSource
 import com.raion.furnitale.core.data.source.local.room.ProductDatabase
 import com.raion.furnitale.core.data.source.remote.RemoteDataSource
 import com.raion.furnitale.core.data.source.remote.network.DummyApiService
@@ -33,8 +33,10 @@ val databaseModule = module {
 val repositoryModule = module {
     single { DummyApiService() }
     single { RemoteDataSource(get()) }
+    single { LocalDataSource(get()) }
     single<IProductRepository> {
         ProductRepository(
+            get(),
             get()
         )
     }

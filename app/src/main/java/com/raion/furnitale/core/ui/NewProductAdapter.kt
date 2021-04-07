@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.raion.furnitale.core.domain.model.Product
-import com.raion.furnitale.databinding.ItemSelectionListBinding
+import com.raion.furnitale.databinding.ItemListBinding
 import com.raion.furnitale.ui.home.HomeFragmentDirections
 
 class NewProductAdapter: RecyclerView.Adapter<NewProductAdapter.NewProductViewHolder>() {
@@ -19,7 +19,7 @@ class NewProductAdapter: RecyclerView.Adapter<NewProductAdapter.NewProductViewHo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewProductViewHolder {
-        val view = ItemSelectionListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return NewProductViewHolder(view)
     }
 
@@ -30,7 +30,7 @@ class NewProductAdapter: RecyclerView.Adapter<NewProductAdapter.NewProductViewHo
     override fun getItemCount(): Int = newProductList.size
 
 
-    inner class NewProductViewHolder(private val view: ItemSelectionListBinding): RecyclerView.ViewHolder(view.root) {
+    inner class NewProductViewHolder(private val view: ItemListBinding): RecyclerView.ViewHolder(view.root) {
         fun bind(product: Product, position: Int) {
             view.data = product
             itemView.setOnClickListener {

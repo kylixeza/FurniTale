@@ -1,11 +1,10 @@
 package com.raion.furnitale.core.data.source.remote.network
 
 import com.raion.furnitale.core.data.source.remote.response.ProductResponse
-import kotlinx.android.synthetic.main.account_fragment.view.*
 
 class DummyApiService {
 
-    fun getAllProductsList(): List<ProductResponse> {
+    private fun getAllProductsList(): List<ProductResponse> {
         val listProducts = ArrayList<ProductResponse>()
 
         listProducts.add(

@@ -1,9 +1,6 @@
 package com.raion.furnitale.core.data.source.local.room
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.raion.furnitale.core.data.source.local.entity.ProductEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -13,10 +10,13 @@ interface ProductDao {
     @Query("SELECT * FROM product_table WHERE user_email = :userEmail")
     fun getCartList(userEmail: String?): Flow<List<ProductEntity>>
 
-    @Query("SELECT * FROM product_table WHERE user_email = :userEmail")
-    fun getTotalStuffs(userEmail: String?): Flow<ProductEntity>?
+    @Query("SELECT * FROM product_table WHERE `key` = :key")
+    fun getTotalStuffs(key: String?): Flow<ProductEntity>?
 
-    @Insert
+    @Query("SELECT * FROM product_table WHERE `key` = :key")
+    fun checkProductIsExist(key: String?): Flow<ProductEntity>?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProduct(product: ProductEntity)
 
     @Update

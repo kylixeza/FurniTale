@@ -1,8 +1,9 @@
 package com.raion.furnitale.core.domain.model
 
 data class Product(
+    var key: String?,
     val id: Int?,
-    val userEmail: String?,
+    var userEmail: String?,
     val title: String?,
     val subTitle: String?,
     val imageProduct: String?,
@@ -12,5 +13,5 @@ data class Product(
     val storeName: String?,
     val city: String?,
     val description: String?,
-    val totalStuffs: Int?
+    var totalStuffs: Int?
 )

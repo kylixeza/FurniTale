@@ -17,6 +17,7 @@ class CategoryAdapter(private val context: Context): RecyclerView.Adapter<Catego
     fun setAll(data: List<Product>) {
         categories.clear()
         categories.addAll(data)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {

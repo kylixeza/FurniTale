@@ -18,7 +18,6 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.raion.furnitale.R
 import com.raion.furnitale.databinding.ActivitySignInBinding
 import com.shashank.sony.fancytoastlib.FancyToast
-import kotlinx.android.synthetic.main.activity_sign_in.*
 import java.lang.Exception
 
 class SignInActivity : AppCompatActivity() {
