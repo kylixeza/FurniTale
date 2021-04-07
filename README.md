@@ -11,4 +11,5 @@
   <li>Averil Primayuda --> Programmer</li>
 </ol>
 
-
+#NOTE
+if you can't login with the google account just make an intent with login button and pass it directly to MainActivity
