@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -67,13 +68,16 @@ class SignInActivity : AppCompatActivity() {
         if (requestCode == RC_SIGN_IN) {
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
+                val sweetSuccess  = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText(getString(R.string.login_success))
+                sweetSuccess.show()
                 val account: GoogleSignInAccount? = task.getResult(ApiException::class.java)
-                signInBinding?.progress?.visibility = View.VISIBLE
                 authWithGoogle(account!!)
             } catch (e: Exception) {
                 e.printStackTrace()
-                signInBinding?.progress?.visibility = View.INVISIBLE
-                Toast.makeText(this, "SignIn Failed", Toast.LENGTH_SHORT).show()
+                val sweetError = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText(getString(R.string.login_failed))
+                sweetError.show()
             }
         }
     }

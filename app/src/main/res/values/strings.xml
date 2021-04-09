@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FurniTale</string>
+    <string name="app_name">Furnitale</string>
 
     <!--activity_splash-->
     <string name="logo_splash">Logo Splash</string>
@@ -14,6 +14,8 @@
     <string name="register_click">Register</string>
     <string name="forget_password">Forget Password?</string>
     <string name="login_decision">or login with</string>
+    <string name="login_success">Login Success</string>
+    <string name="login_failed">Login Failed</string>
 
     <!--Fragments-->
     <string name="home">Home</string>
@@ -61,5 +63,9 @@
     <string name="something_going_wrong">something going wrong</string>
     <string name="visit_store">Visit Store</string>
     <string name="password">Password</string>
+    <string name="delete">Delete</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="payment_total">PAYMENT TOTAL</string>
+    <string name="empty_cart">YOUR CART STILL EMPTY ADD SOME PRODUCTS</string>
 
 </resources>

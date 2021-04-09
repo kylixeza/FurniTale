@@ -10,6 +10,7 @@ data class Product(
     val imageSeller: String?,
     val category: String?,
     val price: String?,
+    val realPrice: Int?,
     val storeName: String?,
     val city: String?,
     val description: String?,

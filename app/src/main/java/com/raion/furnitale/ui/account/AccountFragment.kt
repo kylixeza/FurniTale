@@ -51,19 +51,23 @@ class AccountFragment : Fragment() {
 
         if (account != null) {
             val personName = account.displayName
-            accountBinding?.tvNamaProfile?.text = personName
             val personEmail = account.email
-            accountBinding?.tvMemberSince?.text = personEmail
+
+            accountBinding?.includeAccountDetail?.apply {
+                tvProfileName.text = personName
+                tvMemberSince.text = personEmail
+            }
+
             val avatar = account.photoUrl
             accountBinding?.let {
                 Glide.with(this)
                     .load(avatar)
                     .apply(RequestOptions.circleCropTransform())
-                    .into(it.ivProfile)
+                    .into(accountBinding?.includeAccountDetail?.ivProfile!!)
             }
         }
 
-        accountBinding?.btnLogout?.setOnClickListener {
+        accountBinding?.includeAccountSetting?.btnLogout?.setOnClickListener {
             signOut()
         }
     }

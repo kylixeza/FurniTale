@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/tv_subtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/subtotal"
+        android:textSize="11pt"
+        android:textStyle="bold"
+        android:fontFamily="@font/inder"
+        android:textColor="@color/color_primary" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_all_checkout"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_payment_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_total"
+            android:textColor="@color/color_text_dark_green"
+            android:textStyle="bold"
+            android:textSize="8pt"
+            android:fontFamily="@font/inder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_payment_total_real"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_text_dark_green"
+            android:textStyle="bold"
+            android:textSize="8pt"
+            android:fontFamily="@font/inder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Rp 876.000"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.rilixtech.materialfancybutton.MaterialFancyButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginTop="48dp"
+        app:mfb_borderColor="@color/color_accent"
+        app:mfb_borderWidth="4dp"
+        app:mfb_defaultColor="@color/color_accent"
+        app:mfb_radius="8dp"
+        app:mfb_text="Order"
+        app:mfb_textColor="@android:color/white"
+        app:mfb_textSize="7pt" />
+</LinearLayout>

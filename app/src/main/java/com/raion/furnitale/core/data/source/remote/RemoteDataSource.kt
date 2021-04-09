@@ -64,4 +64,10 @@ class RemoteDataSource(private val apiService: DummyApiService) {
             val newArr = apiService.getNewProduct()
             emit(ApiResponse.Success(newArr))
         }.flowOn(Dispatchers.IO)
+
+    fun getAllDiscount(): Flow<ApiResponse<List<String>>> =
+        flow {
+            val discountArr = apiService.getAllDiscount()
+            emit(ApiResponse.Success(discountArr))
+        }.flowOn(Dispatchers.IO)
 }

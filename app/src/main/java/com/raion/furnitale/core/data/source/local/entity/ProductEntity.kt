@@ -35,6 +35,9 @@ data class ProductEntity(
     @ColumnInfo(name = "price")
     val price: String? = "",
 
+    @ColumnInfo(name = "real_price")
+    val realPrice: Int? = 0,
+
     @ColumnInfo(name = "store_name")
     val storeName: String? = "",
 

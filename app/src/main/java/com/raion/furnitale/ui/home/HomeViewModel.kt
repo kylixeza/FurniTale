@@ -7,4 +7,5 @@ import com.raion.furnitale.core.domain.usecase.ProductUseCase
 class HomeViewModel(useCase: ProductUseCase) : ViewModel() {
     val selection = useCase.getSelectionProduct().asLiveData()
     val newProduct = useCase.getNewProduct().asLiveData()
+    val discount = useCase.getAllDiscount().asLiveData()
 }

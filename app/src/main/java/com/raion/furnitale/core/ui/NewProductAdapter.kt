@@ -24,17 +24,17 @@ class NewProductAdapter: RecyclerView.Adapter<NewProductAdapter.NewProductViewHo
     }
 
     override fun onBindViewHolder(holder: NewProductViewHolder, position: Int) {
-        holder.bind(product = newProductList[position], position)
+        holder.bind(product = newProductList[position])
     }
 
     override fun getItemCount(): Int = newProductList.size
 
 
     inner class NewProductViewHolder(private val view: ItemListBinding): RecyclerView.ViewHolder(view.root) {
-        fun bind(product: Product, position: Int) {
+        fun bind(product: Product) {
             view.data = product
             itemView.setOnClickListener {
-                it.findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToDetailActivity(newProductList[position].id!!))
+                it.findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToDetailActivity(product.id!!))
             }
         }
     }

@@ -24,12 +24,15 @@ class ProductInteractor(private val productRepository: IProductRepository): Prod
 
     override fun getNewProduct(): Flow<Resource<List<Product>>> = productRepository.getNewProduct()
 
+    override fun getAllDiscount(): Flow<Resource<List<String>>> = productRepository.getAllDiscount()
+
     override fun getCartList(userEmail: String?): Flow<List<Product>> = productRepository.getCartList(userEmail)
 
     override fun getTotalStuffs(key: String): Flow<Product>? = productRepository.getTotalStuffs(key)
 
     override suspend fun insertProduct(product: Product) = productRepository.insertProduct(product)
 
-    override fun updateProduct(product: Product) = productRepository.updateProduct(product)
+    override suspend fun deleteProduct(product: Product) = productRepository.deleteProduct(product)
+
 
 }

@@ -34,7 +34,7 @@ class SelectionAdapter: RecyclerView.Adapter<SelectionAdapter.SelectionViewHolde
         fun bind(product: Product, position: Int) {
             view.data = product
             itemView.setOnClickListener {
-                it.findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToDetailActivity(selectionList[position].id!!))
+                it.findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToDetailActivity(product.id!!))
             }
         }
     }

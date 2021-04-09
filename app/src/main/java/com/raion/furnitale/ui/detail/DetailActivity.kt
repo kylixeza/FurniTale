@@ -51,7 +51,7 @@ class DetailActivity : AppCompatActivity() {
                 is Resource.Success -> {
                     product = it.data!!
                     detailBinding?.data = it.data
-                    key = String.format("${product.id}${product.userEmail}")
+                    key = String.format("${product.id}${account?.email}")
                     product.key = key
                     detailViewModel.getTotalStuffs(product.key!!)?.observe(this, { productStuffs ->
                         product.totalStuffs = productStuffs.totalStuffs

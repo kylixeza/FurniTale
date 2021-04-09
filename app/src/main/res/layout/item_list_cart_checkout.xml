@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.raion.furnitale.core.domain.model.Product" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_title_cart_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.title}"
+            android:fontFamily="@font/poppins"
+            android:textSize="6pt"
+            android:textColor="@color/color_text_dark_green"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Lampu sorot"/>
+
+        <TextView
+            android:id="@+id/tv_seller_cart_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.storeName}"
+            android:textSize="3pt"
+            tools:text="human"
+            android:textColor="@color/color_text_dark_green"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_cart_checkout"
+            app:layout_constraintStart_toStartOf="@id/tv_title_cart_checkout"/>
+
+        <TextView
+            android:id="@+id/tv_price_cart_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="6pt"
+            android:textColor="@color/color_text_dark_green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_title_cart_checkout"
+            app:layout_constraintBottom_toBottomOf="@id/tv_title_cart_checkout"
+            tools:text="xxx.000"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

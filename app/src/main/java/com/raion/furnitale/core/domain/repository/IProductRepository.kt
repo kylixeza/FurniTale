@@ -15,9 +15,10 @@ interface IProductRepository {
     fun getDetailProduct(id: Int): Flow<Resource<Product>>
     fun getSelectionProduct(): Flow<Resource<List<Product>>>
     fun getNewProduct(): Flow<Resource<List<Product>>>
+    fun getAllDiscount(): Flow<Resource<List<String>>>
 
     fun getCartList(userEmail: String?): Flow<List<Product>>
     fun getTotalStuffs(key: String?): Flow<Product>?
     suspend fun insertProduct(product: Product)
-    fun updateProduct(product: Product)
+    suspend fun deleteProduct(product: Product): Int
 }

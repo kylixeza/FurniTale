@@ -12,7 +12,7 @@ object DataMapper {
         val domainArray = ArrayList<Product>()
         input.map { response ->
             val product =  Product(
-                 key = null,
+                 key = "",
                 id = response.id,
                 userEmail = null,
                 title = response.title,
@@ -21,6 +21,7 @@ object DataMapper {
                 imageSeller = response.imageSeller,
                 category = response.category,
                 price = response.price,
+                realPrice = response.realPrice,
                 storeName = response.storeName,
                 city = response.city,
                 description = response.description,
@@ -33,7 +34,7 @@ object DataMapper {
 
     fun mapResponseToDomain(input: ProductResponse): Flow<Product> = flowOf (
             Product(
-                key = null,
+                key = "",
                 id = input.id,
                 userEmail = null,
                 title = input.title,
@@ -42,6 +43,7 @@ object DataMapper {
                 imageSeller = input.imageSeller,
                 category = input.category,
                 price = input.price,
+                realPrice = input.realPrice,
                 storeName = input.storeName,
                 city = input.city,
                 description = input.description,
@@ -61,28 +63,30 @@ object DataMapper {
                 imageSeller = entity.imageSeller,
                 category = entity.category,
                 price = entity.price,
+                realPrice = entity.realPrice,
                 storeName = entity.storeName,
                 city = entity.city,
                 description = entity.description,
-                totalStuffs = entity.totalStuffs!!
+                totalStuffs = entity.totalStuffs
             )
         }
 
-    fun mapEntityToDomain(input: ProductEntity): Product =
+    fun mapEntityToDomain(input: ProductEntity?): Product =
         Product(
-            key =  input.key,
-            id = input.id,
-            userEmail = input.userEmail,
-            title = input.title,
-            subTitle = input.subTitle,
-            imageProduct = input.imageProduct,
-            imageSeller = input.imageSeller,
-            category = input.category,
-            price = input.price,
-            storeName = input.storeName,
-            city = input.city,
-            description = input.description,
-            totalStuffs = input.totalStuffs!!
+            key =  input?.key?: "",
+            id = input?.id,
+            userEmail = input?.userEmail,
+            title = input?.title,
+            subTitle = input?.subTitle,
+            imageProduct = input?.imageProduct,
+            imageSeller = input?.imageSeller,
+            category = input?.category,
+            price = input?.price,
+            realPrice = input?.realPrice,
+            storeName = input?.storeName,
+            city = input?.city,
+            description = input?.description,
+            totalStuffs = input?.totalStuffs?: 0
         )
 
     fun mapDomainToEntity(input: Product): ProductEntity =
@@ -96,9 +100,18 @@ object DataMapper {
             imageSeller = input.imageSeller,
             category = input.category,
             price = input.price,
+            realPrice = input.realPrice,
             storeName = input.storeName,
             city = input.city,
             description = input.description,
             totalStuffs = input.totalStuffs
         )
+
+    fun mapDiscount(input: List<String>): Flow<List<String>> {
+        val discountArray = ArrayList<String>()
+        input.map{
+            discountArray.add(it)
+        }
+        return flowOf(discountArray)
+    }
 }

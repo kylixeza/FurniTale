@@ -131,6 +131,19 @@ class ProductRepository(
         }.asFlow()
     }
 
+    override fun getAllDiscount(): Flow<Resource<List<String>>> {
+        return object : NetworkOnlyResource<List<String>, List<String>>() {
+            override fun loadFromNetwork(data: List<String>): Flow<List<String>> {
+                return DataMapper.mapDiscount(data)
+            }
+
+            override suspend fun createCall(): Flow<ApiResponse<List<String>>> {
+                return remoteDataSource.getAllDiscount()
+            }
+
+        }.asFlow()
+    }
+
     override fun getCartList(userEmail: String?): Flow<List<Product>> =
         localDataSource.getCartList(userEmail).map {
             DataMapper.mapEntitiesToDomain(it)
@@ -148,10 +161,8 @@ class ProductRepository(
         localDataSource.insertProduct(data)
     }
 
-    override fun updateProduct(product: Product) {
+    override suspend fun deleteProduct(product: Product): Int {
         val data = DataMapper.mapDomainToEntity(product)
-        localDataSource.updateProduct(data)
+        return localDataSource.deleteProduct(data)
     }
-
-
 }

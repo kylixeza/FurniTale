@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/color_text_dark_green"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tv_my_purchase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:text="@string/buy"
+            android:textColor="@android:color/white"
+            android:textSize="6pt"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/ib_pay"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_pay"
+            android:backgroundTint="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_my_purchase"
+            app:layout_constraintEnd_toStartOf="@id/ib_packing"/>
+
+        <TextView
+            android:id="@+id/tv_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pay"
+            android:textSize="6pt"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/ib_pay"
+            app:layout_constraintStart_toStartOf="@+id/ib_pay"
+            app:layout_constraintTop_toBottomOf="@+id/ib_pay"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/ib_packing"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_package"
+            android:backgroundTint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_pay"
+            app:layout_constraintStart_toEndOf="@+id/ib_pay"
+            app:layout_constraintTop_toTopOf="@+id/ib_pay"
+            app:layout_constraintEnd_toStartOf="@+id/ib_send"/>
+
+        <TextView
+            android:id="@+id/tv_packing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/packing"
+            android:textSize="6pt"
+            android:layout_marginTop="6dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/ib_packing"
+            app:layout_constraintStart_toStartOf="@+id/ib_packing"
+            app:layout_constraintTop_toBottomOf="@+id/ib_packing" />
+
+        <ImageButton
+            android:id="@+id/ib_send"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_send"
+            android:backgroundTint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_packing"
+            app:layout_constraintStart_toEndOf="@+id/ib_packing"
+            app:layout_constraintTop_toTopOf="@+id/ib_packing"
+            app:layout_constraintEnd_toStartOf="@+id/ib_receive"/>
+
+        <TextView
+            android:id="@+id/tv_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/send"
+            android:textSize="6pt"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/ib_send"
+            app:layout_constraintStart_toStartOf="@+id/ib_send"
+            app:layout_constraintTop_toBottomOf="@+id/ib_send" />
+
+        <ImageButton
+            android:id="@+id/ib_receive"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_receive"
+            android:backgroundTint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/ib_send"
+            app:layout_constraintStart_toEndOf="@+id/ib_send"
+            app:layout_constraintTop_toTopOf="@+id/ib_send"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_receive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/receive"
+            android:textSize="6pt"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/ib_receive"
+            app:layout_constraintStart_toStartOf="@+id/ib_receive"
+            app:layout_constraintTop_toBottomOf="@+id/ib_receive" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -5,23 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.IdRes
-import androidx.lifecycle.ViewModel
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.raion.furnitale.R
 import com.raion.furnitale.core.data.Resource
+import com.raion.furnitale.core.ui.DiscountAdapter
 import com.raion.furnitale.core.ui.NewProductAdapter
 import com.raion.furnitale.core.ui.SelectionAdapter
 import com.raion.furnitale.databinding.HomeFragmentBinding
-import org.koin.android.ext.android.getKoin
 import org.koin.android.ext.android.inject
-import org.koin.android.viewmodel.ViewModelParameter
 import org.koin.android.viewmodel.ext.android.viewModel
-import org.koin.android.viewmodel.koin.getViewModel
-import org.koin.core.parameter.ParametersDefinition
-import org.koin.core.qualifier.Qualifier
 
 class HomeFragment : Fragment() {
 
@@ -30,6 +24,7 @@ class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by viewModel()
     private val selectionAdapter: SelectionAdapter by inject()
     private val newProductAdapter: NewProductAdapter by inject()
+    private val discountAdapter: DiscountAdapter by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -61,6 +56,11 @@ class HomeFragment : Fragment() {
         }
 
         homeBinding?.apply {
+            rvDiscount.apply {
+                layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                adapter = discountAdapter
+            }
+
             rvProductSelection.apply {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 adapter = selectionAdapter
@@ -77,7 +77,20 @@ class HomeFragment : Fragment() {
             }
         }
 
+        observeDiscount()
         observeSelection()
+    }
+
+    private fun observeDiscount() {
+        homeViewModel.discount.observe(viewLifecycleOwner, {
+            when(it) {
+                is Resource.Error -> {}
+                is Resource.Loading -> {}
+                is Resource.Success -> {
+                    it.data?.let { it1 -> discountAdapter.setData(it1) }
+                }
+            }
+        })
     }
 
     private fun observeSelection() {

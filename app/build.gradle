@@ -130,4 +130,5 @@ dependencies {
     implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.6'
     compile 'com.github.florent37:bubbletab:1.0.2'
     compile 'com.rilixtech:materialfancybuttons:1.8.8'
+    compile 'cn.pedant.sweetalert:library:1.3'
 }
