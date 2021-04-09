@@ -26,6 +26,8 @@ class ProductInteractor(private val productRepository: IProductRepository): Prod
 
     override fun getAllDiscount(): Flow<Resource<List<String>>> = productRepository.getAllDiscount()
 
+    override fun getAllCategoryImage(): Flow<Resource<List<String>>> = productRepository.getAllCategoryImage()
+
     override fun getCartList(userEmail: String?): Flow<List<Product>> = productRepository.getCartList(userEmail)
 
     override fun getTotalStuffs(key: String): Flow<Product>? = productRepository.getTotalStuffs(key)
@@ -35,6 +37,4 @@ class ProductInteractor(private val productRepository: IProductRepository): Prod
     override suspend fun deleteProduct(product: Product) = productRepository.deleteProduct(product)
 
     override suspend fun deleteAllProduct()  = productRepository.deleteAllProduct()
-
-
 }

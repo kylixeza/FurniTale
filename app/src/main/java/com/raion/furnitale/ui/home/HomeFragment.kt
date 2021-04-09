@@ -5,11 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.raion.furnitale.R
 import com.raion.furnitale.core.data.Resource
 import com.raion.furnitale.core.ui.DiscountAdapter
+import com.raion.furnitale.core.ui.HomeCategoryAdapter
 import com.raion.furnitale.core.ui.NewProductAdapter
 import com.raion.furnitale.core.ui.SelectionAdapter
 import com.raion.furnitale.databinding.HomeFragmentBinding
@@ -24,6 +24,7 @@ class HomeFragment : Fragment() {
     private val selectionAdapter: SelectionAdapter by inject()
     private val newProductAdapter: NewProductAdapter by inject()
     private val discountAdapter: DiscountAdapter by inject()
+    private val homeCategoryAdapter: HomeCategoryAdapter by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -32,27 +33,6 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        homeBinding?.apply {
-            ibLivingroom.setOnClickListener {
-                it.findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToCategoryActivity(0))
-            }
-            ibBedroom.setOnClickListener {
-                it.findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToCategoryActivity(1))
-            }
-            ibKitchen.setOnClickListener {
-                it.findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToCategoryActivity(2))
-            }
-            ibBathroom.setOnClickListener {
-                it.findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToCategoryActivity(3))
-            }
-            ibOutdoor.setOnClickListener {
-                it.findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToCategoryActivity(4))
-            }
-            ibAccessories.setOnClickListener {
-                it.findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToCategoryActivity(5))
-            }
-        }
 
         homeBinding?.apply {
             rvDiscount.apply {
@@ -74,11 +54,18 @@ class HomeFragment : Fragment() {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 adapter = newProductAdapter
             }
+
+            rvHomeCategoryImage.apply {
+                layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                adapter = homeCategoryAdapter
+            }
         }
 
         observeDiscount()
+        observeHomeCategory()
         observeSelection()
     }
+
 
     private fun observeDiscount() {
         homeViewModel.discount.observe(viewLifecycleOwner, {
@@ -87,6 +74,18 @@ class HomeFragment : Fragment() {
                 is Resource.Loading -> {}
                 is Resource.Success -> {
                     it.data?.let { it1 -> discountAdapter.setData(it1) }
+                }
+            }
+        })
+    }
+
+    private fun observeHomeCategory() {
+        homeViewModel.categoryImage.observe(viewLifecycleOwner, {
+            when(it) {
+                is Resource.Error -> {}
+                is Resource.Loading -> {}
+                is Resource.Success -> {
+                    it.data?.let { it1 -> homeCategoryAdapter.setAllData(it1) }
                 }
             }
         })

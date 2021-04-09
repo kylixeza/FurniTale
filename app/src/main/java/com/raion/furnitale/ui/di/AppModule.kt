@@ -37,4 +37,5 @@ val adapterModule = module {
     single { NewProductAdapter() }
     single { CartCheckoutAdapter() }
     single { DiscountAdapter() }
+    single { HomeCategoryAdapter() }
 }

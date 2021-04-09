@@ -107,7 +107,7 @@ object DataMapper {
             totalStuffs = input.totalStuffs
         )
 
-    fun mapDiscount(input: List<String>): Flow<List<String>> {
+    fun mapString(input: List<String>): Flow<List<String>> {
         val discountArray = ArrayList<String>()
         input.map{
             discountArray.add(it)

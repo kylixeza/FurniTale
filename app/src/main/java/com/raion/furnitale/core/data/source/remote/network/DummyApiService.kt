@@ -710,4 +710,17 @@ class DummyApiService {
         }
         return listDiscount
     }
+
+    fun getAllCategoryImage(): List<String> {
+        val listCategory = ArrayList<String>()
+        listCategory.apply {
+            add("https://user-images.githubusercontent.com/81003299/114211252-96d4d800-998a-11eb-9ce6-1b57250cdec8.png")
+            add("https://user-images.githubusercontent.com/81003299/114211253-976d6e80-998a-11eb-8897-502fc9c7e5dc.png")
+            add("https://user-images.githubusercontent.com/81003299/114211238-94727e00-998a-11eb-874c-02451206df14.png")
+            add("https://user-images.githubusercontent.com/81003299/114211243-95a3ab00-998a-11eb-9ada-a3c7b0e29d27.png")
+            add("https://user-images.githubusercontent.com/81003299/114211246-963c4180-998a-11eb-9f7a-3777bd64881a.png")
+            add("https://user-images.githubusercontent.com/81003299/114211249-96d4d800-998a-11eb-9a14-0f4e30e4d934.png")
+        }
+        return listCategory
+    }
 }

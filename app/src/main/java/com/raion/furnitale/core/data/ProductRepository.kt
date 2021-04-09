@@ -134,11 +134,24 @@ class ProductRepository(
     override fun getAllDiscount(): Flow<Resource<List<String>>> {
         return object : NetworkOnlyResource<List<String>, List<String>>() {
             override fun loadFromNetwork(data: List<String>): Flow<List<String>> {
-                return DataMapper.mapDiscount(data)
+                return DataMapper.mapString(data)
             }
 
             override suspend fun createCall(): Flow<ApiResponse<List<String>>> {
                 return remoteDataSource.getAllDiscount()
+            }
+
+        }.asFlow()
+    }
+
+    override fun getAllCategoryImage(): Flow<Resource<List<String>>> {
+        return object : NetworkOnlyResource<List<String>, List<String>>() {
+            override fun loadFromNetwork(data: List<String>): Flow<List<String>> {
+                return DataMapper.mapString(data)
+            }
+
+            override suspend fun createCall(): Flow<ApiResponse<List<String>>> {
+                return remoteDataSource.getAllCategoryImage()
             }
 
         }.asFlow()
@@ -169,6 +182,4 @@ class ProductRepository(
     override suspend fun deleteAllProduct() {
         return localDataSource.deleteAllProduct()
     }
-
-
 }

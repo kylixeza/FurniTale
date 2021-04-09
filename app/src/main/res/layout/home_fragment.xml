@@ -39,66 +39,13 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
-
-            <ImageButton
-                android:id="@+id/ib_livingroom"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_category_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/ic_livingroom"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rv_discount"
-                app:layout_constraintEnd_toStartOf="@id/ib_bedroom"/>
+                app:layout_constraintTop_toBottomOf="@id/rv_discount"/>
 
-            <ImageButton
-                android:id="@+id/ib_kitchen"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:background="@drawable/ic_kitchen"
-                app:layout_constraintBottom_toBottomOf="@+id/ib_bedroom"
-                app:layout_constraintStart_toEndOf="@+id/ib_bedroom"
-                app:layout_constraintTop_toTopOf="@+id/ib_bedroom"
-                app:layout_constraintEnd_toStartOf="@id/ib_bathroom"/>
-
-            <ImageButton
-                android:id="@+id/ib_bedroom"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:background="@drawable/ic_bedroom"
-                app:layout_constraintBottom_toBottomOf="@+id/ib_livingroom"
-                app:layout_constraintStart_toEndOf="@+id/ib_livingroom"
-                app:layout_constraintTop_toTopOf="@+id/ib_livingroom"
-                app:layout_constraintEnd_toStartOf="@id/ib_kitchen"/>
-
-            <ImageButton
-                android:id="@+id/ib_accessories"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:background="@drawable/ic_accessories"
-                app:layout_constraintBottom_toBottomOf="@+id/ib_outdoor"
-                app:layout_constraintStart_toEndOf="@+id/ib_outdoor"
-                app:layout_constraintTop_toTopOf="@+id/ib_outdoor"
-                app:layout_constraintEnd_toEndOf="parent"/>
-
-            <ImageButton
-                android:id="@+id/ib_bathroom"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:background="@drawable/ic_bathroom"
-                app:layout_constraintBottom_toBottomOf="@+id/ib_kitchen"
-                app:layout_constraintStart_toEndOf="@+id/ib_kitchen"
-                app:layout_constraintTop_toTopOf="@+id/ib_kitchen"
-                app:layout_constraintEnd_toStartOf="@id/ib_outdoor"/>
-
-            <ImageButton
-                android:id="@+id/ib_outdoor"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                android:background="@drawable/ic_outdoor"
-                app:layout_constraintBottom_toBottomOf="@+id/ib_bathroom"
-                app:layout_constraintStart_toEndOf="@+id/ib_bathroom"
-                app:layout_constraintTop_toTopOf="@+id/ib_bathroom"
-                app:layout_constraintEnd_toStartOf="@id/ib_accessories"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_new_product"
@@ -164,7 +111,7 @@
                 android:background="@drawable/new_product_line"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ib_livingroom" />
+                app:layout_constraintTop_toBottomOf="@+id/rv_home_category_image" />
 
             <ImageButton
                 android:id="@+id/ib_product_selection"
