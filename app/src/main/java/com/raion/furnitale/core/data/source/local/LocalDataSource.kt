@@ -14,4 +14,5 @@ class LocalDataSource(private val productDao: ProductDao) {
 
     suspend fun deleteProduct(product: ProductEntity) = productDao.deleteProduct(product)
 
+    suspend fun deleteAllProduct() = productDao.deleteAllProduct()
 }

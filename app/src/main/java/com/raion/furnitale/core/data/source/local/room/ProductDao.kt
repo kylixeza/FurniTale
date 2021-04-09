@@ -1,5 +1,6 @@
 package com.raion.furnitale.core.data.source.local.room
 
+
 import androidx.room.*
 import com.raion.furnitale.core.data.source.local.entity.ProductEntity
 import kotlinx.coroutines.flow.Flow
@@ -18,4 +19,7 @@ interface ProductDao {
 
     @Delete
     suspend fun deleteProduct(product: ProductEntity): Int
+
+    @Query("DELETE FROM product_table")
+    suspend fun deleteAllProduct()
 }

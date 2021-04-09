@@ -165,4 +165,10 @@ class ProductRepository(
         val data = DataMapper.mapDomainToEntity(product)
         return localDataSource.deleteProduct(data)
     }
+
+    override suspend fun deleteAllProduct() {
+        return localDataSource.deleteAllProduct()
+    }
+
+
 }

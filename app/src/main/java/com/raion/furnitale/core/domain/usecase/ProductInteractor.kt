@@ -34,5 +34,7 @@ class ProductInteractor(private val productRepository: IProductRepository): Prod
 
     override suspend fun deleteProduct(product: Product) = productRepository.deleteProduct(product)
 
+    override suspend fun deleteAllProduct()  = productRepository.deleteAllProduct()
+
 
 }

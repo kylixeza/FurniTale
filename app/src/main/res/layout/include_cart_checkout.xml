@@ -54,6 +54,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.rilixtech.materialfancybutton.MaterialFancyButton
+        android:id="@+id/button_checkout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"

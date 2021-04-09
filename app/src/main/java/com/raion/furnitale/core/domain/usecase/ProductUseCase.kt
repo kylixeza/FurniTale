@@ -21,4 +21,5 @@ interface ProductUseCase {
     fun getTotalStuffs(key: String): Flow<Product>?
     suspend fun insertProduct(product: Product)
     suspend fun deleteProduct(product: Product): Int
+    suspend fun deleteAllProduct()
 }

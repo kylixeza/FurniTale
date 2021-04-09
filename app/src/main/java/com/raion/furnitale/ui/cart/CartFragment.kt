@@ -73,6 +73,9 @@ class CartFragment : Fragment() {
             cartCheckoutAdapter.setData(it)
             cartAdapter.settAllData(it)
             totalPrice(it)
+            if (it.isNotEmpty()) {
+                checkout()
+            }
         })
     }
 
@@ -84,7 +87,30 @@ class CartFragment : Fragment() {
         }
         cartBinding?.includeCartCheckout?.tvPaymentTotalReal?.text = "Rp $totalPrice"
     }
-
+    
+    private fun checkout() {
+        cartBinding?.includeCartCheckout?.buttonCheckout?.setOnClickListener {
+            val checkoutDialog = SweetAlertDialog(activity, SweetAlertDialog.NORMAL_TYPE)
+            checkoutDialog.apply {
+                titleText = "Checkout Products?"
+                confirmText = "YES"
+                cancelText = "NO"
+                setConfirmClickListener {
+                    cartViewModel.deleteAllProduct()
+                    it.titleText = "Checkout Success"
+                    it.confirmText = "OK"
+                    it.cancelText = null
+                    it.setConfirmClickListener(null)
+                    it.changeAlertType(SweetAlertDialog.SUCCESS_TYPE)
+                }
+                setCancelClickListener {
+                    it.cancel()
+                }
+                show()
+            }
+        }
+    }
+    
     override fun onDestroyView() {
         super.onDestroyView()
         _cartBinding = null

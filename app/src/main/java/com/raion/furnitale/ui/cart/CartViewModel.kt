@@ -18,4 +18,8 @@ class CartViewModel(private val useCase: ProductUseCase) : ViewModel() {
     fun insertProduct(product: Product) = viewModelScope.launch {
         useCase.insertProduct(product)
     }
+
+    fun deleteAllProduct() = viewModelScope.launch {
+        useCase.deleteAllProduct()
+    }
 }
