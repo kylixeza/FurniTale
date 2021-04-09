@@ -1,6 +1,5 @@
 package com.raion.furnitale.ui.categories
 
-import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -11,7 +10,7 @@ import com.raion.furnitale.ui.categories.kitchen.KitchenFragment
 import com.raion.furnitale.ui.categories.livingroom.LivingRoomFragment
 import com.raion.furnitale.ui.categories.outdoor.OutdoorFragment
 
-class CategoryPageAdapter(private val context: Context, private val fm: FragmentManager):
+class CategoryPageAdapter(fm: FragmentManager):
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     override fun getCount(): Int {
         return 6

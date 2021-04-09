@@ -6,20 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.raion.furnitale.R
 import com.raion.furnitale.core.domain.model.Product
 import com.raion.furnitale.core.ui.CartAdapter
 import com.raion.furnitale.core.ui.CartCheckoutAdapter
 import com.raion.furnitale.databinding.CartFragmentBinding
-import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.item_list_cart.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 

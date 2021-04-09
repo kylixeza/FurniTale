@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -17,9 +15,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.raion.furnitale.R
 import com.raion.furnitale.databinding.AccountFragmentBinding
 import com.raion.furnitale.ui.SignInActivity
-import com.raion.furnitale.ui.home.HomeFragment
-import kotlinx.android.synthetic.main.account_fragment.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 class AccountFragment : Fragment() {
 

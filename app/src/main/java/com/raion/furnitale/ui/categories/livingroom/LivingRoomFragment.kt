@@ -1,21 +1,14 @@
 package com.raion.furnitale.ui.categories.livingroom
 
-import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.raion.furnitale.R
 import com.raion.furnitale.core.data.Resource
 import com.raion.furnitale.core.ui.CategoryAdapter
 import com.raion.furnitale.databinding.LivingRoomFragmentBinding
-import com.raion.furnitale.ui.detail.DetailActivity
-import kotlinx.android.synthetic.main.living_room_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class LivingRoomFragment : Fragment() {

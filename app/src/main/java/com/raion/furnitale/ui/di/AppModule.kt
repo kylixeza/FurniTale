@@ -3,7 +3,6 @@ package com.raion.furnitale.ui.di
 import com.raion.furnitale.core.domain.usecase.ProductInteractor
 import com.raion.furnitale.core.domain.usecase.ProductUseCase
 import com.raion.furnitale.core.ui.*
-import com.raion.furnitale.ui.MainActivity
 import com.raion.furnitale.ui.cart.CartViewModel
 import com.raion.furnitale.ui.categories.accessories.AccessoriesViewModel
 import com.raion.furnitale.ui.categories.bathroom.BathroomViewModel
