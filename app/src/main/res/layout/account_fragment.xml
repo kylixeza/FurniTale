@@ -1,280 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.account.AccountFragment">
+    android:layout_width="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.account.AccountFragment">
 
-    <ImageView
-        android:id="@+id/iv_profile"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/tv_nama_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textSize="6pt"
-        android:textColor="@color/color_text_dark_green"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/iv_profile"
-        app:layout_constraintTop_toTopOf="@+id/iv_profile"
-        tools:text="@string/profile_name"/>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="150dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="16dp"
-        app:cardBackgroundColor="@color/color_text_dark_green"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
-        app:layout_constraintStart_toEndOf="@+id/iv_profile"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nama_profile">
-        <TextView
-            android:id="@+id/tv_member_since"
-            android:layout_width="wrap_content"
+        <include
+            android:id="@+id/include_account_detail"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="5pt"
-            android:textColor="@android:color/white"
-            android:maxLines="1"
-            android:shadowColor="@android:color/white"
-            android:shadowRadius="8"
-            android:layout_gravity="center"
-            tools:text="@string/member_since"/>
-    </androidx.cardview.widget.CardView>
+            layout="@layout/include_account_detail"/>
 
+        <include
+            android:id="@+id/include_my_purchase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            layout="@layout/include_account_my_purchase"/>
 
+        <include
+            android:id="@+id/include_account_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            layout="@layout/include_account_setting"/>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_Buy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="48dp"
-        android:text="@string/buy"
-        android:textColor="@color/color_text_dark_green"
-        android:textSize="8pt"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_profile" />
-
-    <ImageButton
-        android:id="@+id/ib_pay"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/ic_pay"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Buy"
-        app:layout_constraintEnd_toStartOf="@id/ib_packing"/>
-
-    <ImageButton
-        android:id="@+id/ib_packing"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/ic_package"
-        app:layout_constraintBottom_toBottomOf="@+id/ib_pay"
-        app:layout_constraintStart_toEndOf="@+id/ib_pay"
-        app:layout_constraintTop_toTopOf="@+id/ib_pay"
-        app:layout_constraintEnd_toStartOf="@+id/ib_send"/>
-
-    <ImageButton
-        android:id="@+id/ib_send"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/ic_send"
-        app:layout_constraintBottom_toBottomOf="@+id/ib_packing"
-        app:layout_constraintStart_toEndOf="@+id/ib_packing"
-        app:layout_constraintTop_toTopOf="@+id/ib_packing"
-        app:layout_constraintEnd_toStartOf="@+id/ib_receive"/>
-
-    <ImageButton
-        android:id="@+id/ib_receive"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/ic_receive"
-        app:layout_constraintBottom_toBottomOf="@+id/ib_packing"
-        app:layout_constraintStart_toEndOf="@+id/ib_send"
-        app:layout_constraintTop_toTopOf="@+id/ib_send"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <ImageButton
-        android:id="@+id/ib_address_list"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintEnd_toEndOf="@+id/tv_settings"
-        app:layout_constraintStart_toStartOf="@+id/tv_settings"
-        app:layout_constraintTop_toBottomOf="@+id/tv_settings" />
-
-    <ImageButton
-        android:id="@+id/ib_preference"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintEnd_toEndOf="@+id/ib_address_list"
-        app:layout_constraintStart_toStartOf="@+id/ib_address_list"
-        app:layout_constraintTop_toBottomOf="@+id/ib_address_list" />
-
-    <ImageButton
-        android:id="@+id/ib_terms_and_policy"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintEnd_toEndOf="@+id/ib_preference"
-        app:layout_constraintStart_toStartOf="@+id/ib_preference"
-        app:layout_constraintTop_toBottomOf="@+id/tv_help_and_support" />
-
-    <ImageButton
-        android:id="@+id/ib_contact_us"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintEnd_toEndOf="@+id/ib_terms_and_policy"
-        app:layout_constraintStart_toStartOf="@+id/ib_terms_and_policy"
-        app:layout_constraintTop_toBottomOf="@+id/ib_terms_and_policy" />
-
-    <Button
-        android:id="@+id/btn_logout"
-        android:layout_width="96dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="32dp"
-        android:background="@android:color/white"
-        android:text="@string/logout"
-        android:textColor="@android:color/white"
-        android:textSize="4pt"
-        android:backgroundTint="@color/color_text_dark_green"
-        app:layout_constraintEnd_toEndOf="@+id/ib_contact_us"
-        app:layout_constraintStart_toStartOf="@+id/ib_contact_us"
-        app:layout_constraintTop_toBottomOf="@+id/ib_contact_us" />
-
-    <TextView
-        android:id="@+id/tv_pay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pay"
-        android:textSize="6pt"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:layout_margin="4dp"
-        app:layout_constraintEnd_toEndOf="@+id/ib_pay"
-        app:layout_constraintStart_toStartOf="@+id/ib_pay"
-        app:layout_constraintTop_toBottomOf="@+id/ib_pay" />
-
-    <TextView
-        android:id="@+id/tv_packing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/packing"
-        android:textSize="6pt"
-        android:layout_margin="4dp"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/ib_packing"
-        app:layout_constraintStart_toStartOf="@+id/ib_packing"
-        app:layout_constraintTop_toBottomOf="@+id/ib_packing" />
-
-    <TextView
-        android:id="@+id/tv_send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:text="@string/packing"
-        android:textSize="6pt"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/ib_send"
-        app:layout_constraintStart_toStartOf="@+id/ib_send"
-        app:layout_constraintTop_toBottomOf="@+id/ib_send" />
-
-    <TextView
-        android:id="@+id/tv_receive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/receive"
-        android:textSize="6pt"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:layout_margin="4dp"
-        app:layout_constraintEnd_toEndOf="@+id/ib_receive"
-        app:layout_constraintStart_toStartOf="@+id/ib_receive"
-        app:layout_constraintTop_toBottomOf="@+id/ib_receive" />
-
-    <TextView
-        android:id="@+id/tv_settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="64dp"
-        android:textSize="8pt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_pay" />
-
-    <TextView
-        android:id="@+id/tv_address_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/address_list"
-        android:textSize="6pt"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ib_address_list"
-        app:layout_constraintStart_toEndOf="@+id/ib_address_list"
-        app:layout_constraintTop_toTopOf="@+id/ib_address_list" />
-
-    <TextView
-        android:id="@+id/tv_preference"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/preference"
-        android:textSize="6pt"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ib_preference"
-        app:layout_constraintStart_toEndOf="@+id/ib_preference"
-        app:layout_constraintTop_toTopOf="@+id/ib_preference" />
-
-    <TextView
-        android:id="@+id/tv_help_and_support"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/help_amp_support"
-        android:textSize="8pt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ib_preference" />
-
-    <TextView
-        android:id="@+id/tv_terms_and_policy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/terms_amp_policy_privacy"
-        android:textSize="6pt"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ib_terms_and_policy"
-        app:layout_constraintStart_toEndOf="@+id/ib_terms_and_policy"
-        app:layout_constraintTop_toTopOf="@+id/ib_terms_and_policy" />
-
-    <TextView
-        android:id="@+id/tv_contact_us"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/contact_us"
-        android:layout_margin="16dp"
-        android:textSize="6pt"
-        app:layout_constraintBottom_toBottomOf="@+id/ib_contact_us"
-        app:layout_constraintStart_toEndOf="@+id/ib_contact_us"
-        app:layout_constraintTop_toTopOf="@+id/ib_contact_us" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
