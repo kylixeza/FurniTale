@@ -1,6 +1,6 @@
 # FurniTale
 [![KylixEza](https://circleci.com/gh/KylixEza/FurniTale.svg?style=shield)](https://circleci.com/gh/KylixEza/FurniTale)
-<p>⛔ raion intership on progress</p>
+<p>✅  raion intership on success</p>
 
 # Our Team Members
 <ol>
