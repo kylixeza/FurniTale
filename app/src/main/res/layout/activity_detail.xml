@@ -162,38 +162,39 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_add_to_cart">
 
+                <LinearLayout
+                    android:id="@+id/cv_constraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_about"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="32dp"
+                        android:text="@string/about"
+                        android:textColor="@android:color/white"
+                        android:textSize="8pt"
+                        android:fontFamily="@font/poppins"
+                        android:translationZ="2dp" />
+
+                    <TextView
+                        android:id="@+id/tv_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="32dp"
+                        android:text="@{data.description}"
+                        android:textColor="@android:color/white"
+                        android:textSize="6pt"
+                        android:fontFamily="@font/poppins"
+                        android:translationZ="2dp"
+                        tools:text="deskripsi disini"/>
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/tv_about"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/about"
-                android:textColor="@android:color/white"
-                android:textSize="8pt"
-                android:fontFamily="@font/poppins"
-                android:translationZ="2dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/cv_description_holder" />
-
-            <TextView
-                android:id="@+id/tv_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="32dp"
-                android:text="@{data.description}"
-                android:textColor="@android:color/white"
-                android:textSize="6pt"
-                android:fontFamily="@font/poppins"
-                android:translationZ="2dp"
-                app:layout_constraintStart_toStartOf="@+id/tv_about"
-                app:layout_constraintTop_toBottomOf="@+id/tv_about"
-                tools:text="deskripsi disini"/>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

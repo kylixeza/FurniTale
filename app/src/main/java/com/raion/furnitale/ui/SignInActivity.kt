@@ -46,12 +46,13 @@ class SignInActivity : AppCompatActivity() {
             signIn()
         }
 
-        signInBinding?.tvRegisterClick?.setOnClickListener {
-            FancyToast.makeText(this,"This feature is unavailable right now", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
-        }
-
-        signInBinding?.btnLogin?.setOnClickListener {
-            FancyToast.makeText(this, "You just can login with google account",  FancyToast.LENGTH_SHORT, FancyToast.INFO, false).show()
+        signInBinding?.apply {
+            tvRegisterClick.setOnClickListener {
+                FancyToast.makeText(this@SignInActivity,"This feature is unavailable right now", FancyToast.LENGTH_SHORT, FancyToast.INFO, false).show()
+            }
+            btnLogin.setOnClickListener {
+                FancyToast.makeText(this@SignInActivity, "You just can login with google account",  FancyToast.LENGTH_SHORT, FancyToast.INFO, false).show()
+            }
         }
     }
 

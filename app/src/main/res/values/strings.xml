@@ -60,7 +60,7 @@
     <string name="detail_add_to_cart">+ Add To Cart</string>
 
     <!--default_layout-->
-    <string name="something_going_wrong">something going wrong</string>
+    <string name="feature_unavailable">This Feature Is Unavailable</string>
     <string name="visit_store">Visit Store</string>
     <string name="password">Password</string>
     <string name="delete">Delete</string>

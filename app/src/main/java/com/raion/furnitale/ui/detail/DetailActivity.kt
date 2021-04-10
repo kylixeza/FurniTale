@@ -33,11 +33,15 @@ class DetailActivity : AppCompatActivity() {
 
         observeDetail(account)
 
+        detailBinding?.btnChat?.setOnClickListener {
+            FancyToast.makeText(this, "This feature is unavailable", FancyToast.ERROR, FancyToast.LENGTH_SHORT, false).show()
+        }
+
         detailBinding?.btnAddToCart?.setOnClickListener {
             product.userEmail = account?.email
             product.totalStuffs = product.totalStuffs?.plus(1)
             detailViewModel.insertProduct(product)
-            FancyToast.makeText(this, "Add To Cart", FancyToast.SUCCESS, FancyToast.LENGTH_SHORT, false).show()
+            FancyToast.makeText(this, "added to your cart", FancyToast.SUCCESS, FancyToast.LENGTH_SHORT, false).show()
         }
     }
 
