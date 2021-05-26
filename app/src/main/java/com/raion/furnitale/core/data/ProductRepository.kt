@@ -131,6 +131,18 @@ class ProductRepository(
         }.asFlow()
     }
 
+    override fun getSearchProducts(query: String): Flow<Resource<List<Product>>> {
+        return object : NetworkOnlyResource<List<Product>, List<ProductResponse>>() {
+            override fun loadFromNetwork(data: List<ProductResponse>): Flow<List<Product>> {
+                return DataMapper.mapResponsesToDomain(data)
+            }
+
+            override suspend fun createCall(): Flow<ApiResponse<List<ProductResponse>>> {
+                return remoteDataSource.getSearchProducts(query)
+            }
+        }.asFlow()
+    }
+
     override fun getAllDiscount(): Flow<Resource<List<String>>> {
         return object : NetworkOnlyResource<List<String>, List<String>>() {
             override fun loadFromNetwork(data: List<String>): Flow<List<String>> {

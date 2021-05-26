@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_home_destination_to_detailActivity"
             app:destination="@id/detailActivity" />
+        <action
+            android:id="@+id/action_home_destination_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/account_destination"
@@ -68,4 +71,18 @@
             android:name="id"
             app:argType="integer"/>
     </activity>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.raion.furnitale.ui.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/search_fragment" >
+        <argument
+            android:name="query"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+        <action
+            android:id="@+id/action_searchFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
+    </fragment>
 </navigation>

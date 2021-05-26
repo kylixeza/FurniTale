@@ -12,6 +12,7 @@ import com.raion.furnitale.ui.categories.livingroom.LivingRoomViewModel
 import com.raion.furnitale.ui.categories.outdoor.OutdoorViewModel
 import com.raion.furnitale.ui.detail.DetailViewModel
 import com.raion.furnitale.ui.home.HomeViewModel
+import com.raion.furnitale.ui.search.SearchViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -29,6 +30,7 @@ val viewModelModule = module {
     viewModel { AccessoriesViewModel(get()) }
     viewModel { HomeViewModel(get()) }
     viewModel { CartViewModel(get()) }
+    viewModel { SearchViewModel(get()) }
 }
 
 val adapterModule = module {
@@ -38,4 +40,5 @@ val adapterModule = module {
     single { CartCheckoutAdapter() }
     single { DiscountAdapter() }
     single { HomeCategoryAdapter() }
+    single { SearchAdapter() }
 }

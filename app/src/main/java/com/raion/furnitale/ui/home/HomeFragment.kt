@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.raion.furnitale.R
 import com.raion.furnitale.core.data.Resource
@@ -14,7 +15,6 @@ import com.raion.furnitale.core.ui.HomeCategoryAdapter
 import com.raion.furnitale.core.ui.NewProductAdapter
 import com.raion.furnitale.core.ui.SelectionAdapter
 import com.raion.furnitale.databinding.HomeFragmentBinding
-import com.shashank.sony.fancytoastlib.FancyToast
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -40,7 +40,8 @@ class HomeFragment : Fragment() {
             queryHint = "Looking For What?"
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
-                    FancyToast.makeText(activity, "This feature is unavailable right now", FancyToast.ERROR, FancyToast.LENGTH_SHORT, false).show()
+                    if (query != null)
+                        findNavController().navigate(HomeFragmentDirections.actionHomeDestinationToSearchFragment(query))
                     return true
                 }
 

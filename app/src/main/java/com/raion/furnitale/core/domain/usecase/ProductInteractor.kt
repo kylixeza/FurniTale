@@ -24,6 +24,8 @@ class ProductInteractor(private val productRepository: IProductRepository): Prod
 
     override fun getNewProduct(): Flow<Resource<List<Product>>> = productRepository.getNewProduct()
 
+    override fun getSearchProducts(query: String): Flow<Resource<List<Product>>> = productRepository.getSearchProducts(query)
+
     override fun getAllDiscount(): Flow<Resource<List<String>>> = productRepository.getAllDiscount()
 
     override fun getAllCategoryImage(): Flow<Resource<List<String>>> = productRepository.getAllCategoryImage()

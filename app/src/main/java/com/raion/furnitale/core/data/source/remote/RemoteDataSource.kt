@@ -14,37 +14,37 @@ class RemoteDataSource(private val apiService: DummyApiService) {
         flow {
             val livingRoomArr = apiService.getLivingRoomList()
             emit(ApiResponse.Success(livingRoomArr))
-        }
+        }.flowOn(Dispatchers.IO)
 
     fun getBedRoomList(): Flow<ApiResponse<List<ProductResponse>>> =
         flow {
             val bedRoomArr = apiService.getBedRoomList()
             emit(ApiResponse.Success(bedRoomArr))
-        }
+        }.flowOn(Dispatchers.IO)
 
     fun getKitchenList(): Flow<ApiResponse<List<ProductResponse>>> =
         flow {
             val kitchenArr = apiService.getKitchenList()
             emit(ApiResponse.Success(kitchenArr))
-        }
+        }.flowOn(Dispatchers.IO)
 
     fun getBathRoomList(): Flow<ApiResponse<List<ProductResponse>>> =
         flow {
             val bathRoomArr = apiService.getBathroomList()
             emit(ApiResponse.Success(bathRoomArr))
-        }
+        }.flowOn(Dispatchers.IO)
 
     fun getOutdoorList(): Flow<ApiResponse<List<ProductResponse>>> =
         flow {
             val outdoorArr = apiService.getOutdoorList()
             emit(ApiResponse.Success(outdoorArr))
-        }
+        }.flowOn(Dispatchers.IO)
 
     fun getAccessoriesList(): Flow<ApiResponse<List<ProductResponse>>> =
         flow {
             val accessoriesArr = apiService.getAccessoriesList()
             emit(ApiResponse.Success(accessoriesArr))
-        }
+        }.flowOn(Dispatchers.IO)
 
     fun getDetailProduct(id: Int): Flow<ApiResponse<ProductResponse>> =
         flow {
@@ -62,6 +62,12 @@ class RemoteDataSource(private val apiService: DummyApiService) {
         flow {
             val newArr = apiService.getNewProduct()
             emit(ApiResponse.Success(newArr))
+        }.flowOn(Dispatchers.IO)
+
+    fun getSearchProducts(query: String): Flow<ApiResponse<List<ProductResponse>>> =
+        flow {
+            val searchArr = apiService.getSearchProducts(query)
+            emit(ApiResponse.Success(searchArr))
         }.flowOn(Dispatchers.IO)
 
     fun getAllDiscount(): Flow<ApiResponse<List<String>>> =

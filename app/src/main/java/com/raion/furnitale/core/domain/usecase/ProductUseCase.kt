@@ -15,6 +15,7 @@ interface ProductUseCase {
     fun getDetailProduct(id: Int): Flow<Resource<Product>>
     fun getSelectionProduct(): Flow<Resource<List<Product>>>
     fun getNewProduct(): Flow<Resource<List<Product>>>
+    fun getSearchProducts(query: String): Flow<Resource<List<Product>>>
     fun getAllDiscount(): Flow<Resource<List<String>>>
     fun getAllCategoryImage(): Flow<Resource<List<String>>>
 

@@ -37,7 +37,7 @@ val repositoryModule = module {
     single<IProductRepository> {
         ProductRepository(
             get(),
-            get()
+            get(),
         )
     }
 }

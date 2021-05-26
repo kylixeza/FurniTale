@@ -1,6 +1,8 @@
 package com.raion.furnitale.core.data.source.remote.network
 
+import android.util.Log
 import com.raion.furnitale.core.data.source.remote.response.ProductResponse
+import com.raion.furnitale.core.utils.CategoryType
 
 class DummyApiService {
 
@@ -15,7 +17,7 @@ class DummyApiService {
                 "Cheap, Aesthetic, and Elegant for your living room",
                 "https://user-images.githubusercontent.com/81003299/113378675-c475bc00-93a1-11eb-8d07-bc6198c1bdd9.png",
                 "https://user-images.githubusercontent.com/81003299/113385048-81bbe000-93b1-11eb-9847-5d301b81c4ae.png",
-                "Living Room",
+                CategoryType.LIVINGROOM.desc,
                 "Rp 133.000,-",
                 133000,
                 "Adi Jaya",
@@ -32,7 +34,7 @@ class DummyApiService {
                 "Lampu Plafon Led Modern 220v 18w Untuk Dapur / Ruang Tamu",
                 "https://user-images.githubusercontent.com/81003299/113378436-37326780-93a1-11eb-8708-317c9173d61d.png",
                 "https://user-images.githubusercontent.com/81003299/113385052-8385a380-93b1-11eb-859a-c7750e1fc3d3.png",
-                "Living Room",
+                CategoryType.LIVINGROOM.desc,
                 "Rp 200.000,-",
                 200000,
                 "inglighting188.id",
@@ -49,7 +51,7 @@ class DummyApiService {
                 "Karpet Bulu Matras Bulu Rasfur Tebal 2,5 CM Polos Murah",
                 "https://user-images.githubusercontent.com/81003299/113378306-d9058480-93a0-11eb-84e7-811d36141f8f.png",
                 "https://user-images.githubusercontent.com/81003299/113385049-82547680-93b1-11eb-8b39-6af64f48c35c.png",
-                "Living Room",
+                CategoryType.LIVINGROOM.desc,
                 "Rp 87.000,-",
                 87000,
                 "gudangwks01",
@@ -66,7 +68,7 @@ class DummyApiService {
                 "Rak Serbaguna Rak Dinding Dekorasi Ruang Tamu 3 Tingkat",
                 "https://user-images.githubusercontent.com/81003299/113385337-23dbc800-93b2-11eb-9161-513482b8716c.png",
                 "https://user-images.githubusercontent.com/81003299/113385043-7ff21c80-93b1-11eb-8410-9cb24faf602b.png",
-                "Living Room",
+                CategoryType.LIVINGROOM.desc,
                 "Rp 52.000,-",
                 52000,
                 "rmstore1",
@@ -83,7 +85,7 @@ class DummyApiService {
                 "MEJA RUANG TAMU MINIMALIS KAKI KAYU RETRO MURAH",
                 "https://user-images.githubusercontent.com/81003299/113378551-811b4d80-93a1-11eb-980e-1b714cb719f8.png",
                 "https://user-images.githubusercontent.com/81003299/113385045-81bbe000-93b1-11eb-839f-255d23f44ab2.png",
-                "Living Room",
+                CategoryType.LIVINGROOM.desc,
                 "Rp 495.000,-",
                 495000,
                 "kristianiwinda98",
@@ -100,7 +102,7 @@ class DummyApiService {
                 "Comforta Superfit SC Vulcan Set 200x200",
                 "https://user-images.githubusercontent.com/81003299/113378766-fc7cff00-93a1-11eb-90fa-48dc69cb9cb8.png",
                 "https://user-images.githubusercontent.com/81003299/113385050-82547680-93b1-11eb-87f9-56755fc2b51f.png",
-                "Bedroom",
+                CategoryType.BEDROOM.desc,
                 "Rp 4.399.000,-",
                 4399000,
                 "sleep.center",
@@ -121,7 +123,7 @@ class DummyApiService {
                 "SIMPLE CLOTH RACK / RAK BAJU LEMARI PORTABLE",
                 "https://user-images.githubusercontent.com/81003299/113378960-7ad9a100-93a2-11eb-8de7-2942f9056246.png",
                 "https://user-images.githubusercontent.com/81003299/113385043-7ff21c80-93b1-11eb-8410-9cb24faf602b.png",
-                "Bedroom",
+                CategoryType.BEDROOM.desc,
                 "Rp 105.000,-",
                 105000,
                 "buynow.id",
@@ -147,7 +149,7 @@ class DummyApiService {
                 "Set Kamar Tidur Mewah Mebel Meubel Furniture Asli Jepara",
                 "https://user-images.githubusercontent.com/81003299/113379142-e754a000-93a2-11eb-90c1-83857b007be0.png",
                 "https://user-images.githubusercontent.com/81003299/113385044-81234980-93b1-11eb-8bd6-0b9996ec21de.png",
-                "Bedroom",
+                CategoryType.BEDROOM.desc,
                 "Rp 29.999.000,-",
                 29999000,
                 "zaenal_groceline",
@@ -166,7 +168,7 @@ class DummyApiService {
                 "Rak Penyimpanan Serbaguna Dapat Dilepas Pasang 4 tingkat",
                 "https://user-images.githubusercontent.com/81003299/113379067-bc6a4c00-93a2-11eb-8e68-ff3ad3eb039f.png",
                 "https://user-images.githubusercontent.com/81003299/113385053-8385a380-93b1-11eb-8844-5daeea6e4fc7.png",
-                "Bedroom",
+                CategoryType.BEDROOM.desc,
                 "Rp 99.000,-",
                 99000,
                 "sun_homeware",
@@ -189,7 +191,7 @@ class DummyApiService {
                 "Lampu Plafon Led Gaya Nordic Modern Bahan Besi + Kayu Untuk Dekorasi Ruang Tamu / Kamar Tidur",
                 "https://user-images.githubusercontent.com/81003299/113378824-26cebc80-93a2-11eb-9391-30fed023121e.png",
                 "https://user-images.githubusercontent.com/81003299/113385053-8385a380-93b1-11eb-8844-5daeea6e4fc7.png",
-                "Bedroom",
+                CategoryType.BEDROOM.desc,
                 "Rp 228.000,-",
                 228000,
                 "inglighting188.id",
@@ -211,7 +213,7 @@ class DummyApiService {
                 "Wastafel Perlengkapan Dapur Unik Paling Murah",
                 "https://user-images.githubusercontent.com/81003299/113379539-ff78ef00-93a3-11eb-96f4-d7238ef948c7.png",
                 "https://user-images.githubusercontent.com/81003299/113385053-8385a380-93b1-11eb-8844-5daeea6e4fc7.png",
-                "Kitchen",
+                CategoryType.KITCHEN.desc,
                 "Rp 24.500,-",
                 24500,
                 "tuenti.id",
@@ -231,7 +233,7 @@ class DummyApiService {
                 "Rak Penyimpanan Rak Dapur Serbaguna jaring 5 Susun",
                 "https://user-images.githubusercontent.com/81003299/113379449-b88af980-93a3-11eb-9315-d8ed81156f23.png",
                 "https://user-images.githubusercontent.com/81003299/113385052-8385a380-93b1-11eb-859a-c7750e1fc3d3.png",
-                "Kitchen",
+                CategoryType.KITCHEN.desc,
                 "Rp 299.000,-",
                 299000,
                 "Ollahom",
@@ -255,7 +257,7 @@ class DummyApiService {
                 "Keset Dapur Kulit Premium Elegant Bahan PVC Anti Minyak dan Tahan Air (1 SET DAPAT 2PCS) 45x120cm",
                 "https://user-images.githubusercontent.com/81003299/113379290-49150a00-93a3-11eb-9280-0eedd29fa094.png",
                 "https://user-images.githubusercontent.com/81003299/113385051-82ed0d00-93b1-11eb-9521-9addc0b9ee84.png",
-                "Kitchen",
+                CategoryType.KITCHEN.desc,
                 "Rp 118.000,-",
                 118000,
                 "kerajaankarpet",
@@ -276,7 +278,7 @@ class DummyApiService {
                 "[FREE ONGKIR] Meja Makan Kursi 4 Rotan Sintetis Furniture Original High Quality",
                 "https://user-images.githubusercontent.com/81003299/113379482-d8bab880-93a3-11eb-82b2-35643aa42fcf.png",
                 "https://user-images.githubusercontent.com/81003299/113385045-81bbe000-93b1-11eb-839f-255d23f44ab2.png",
-                "Kitchen",
+                CategoryType.KITCHEN.desc,
                 "Rp 1.499.000,-",
                 1499000,
                 "galleryrotan77",
@@ -295,7 +297,7 @@ class DummyApiService {
                 "Meja Kompor Gas Stainless jos gandos",
                 "https://user-images.githubusercontent.com/81003299/113379366-811c4d00-93a3-11eb-86b3-97e1addc84fa.png",
                 "https://user-images.githubusercontent.com/81003299/113385044-81234980-93b1-11eb-8bd6-0b9996ec21de.png",
-                "Kitchen",
+                CategoryType.KITCHEN.desc,
                 "Rp 475.000,-",
                 475000,
                 "penjual.kompor",
@@ -316,7 +318,7 @@ class DummyApiService {
                 "Greenland Rak kamar Mandi Sudut Siku Tempel Keramik Tempat Penyimpanan Sabun Odol HRD308",
                 "https://user-images.githubusercontent.com/81003299/113379702-639bb300-93a4-11eb-85b8-fd4fe571c56f.png",
                 "https://user-images.githubusercontent.com/81003299/113385054-841e3a00-93b1-11eb-9c96-29ff6790513d.png",
-                "Bathroom",
+                CategoryType.BATHROOM.desc,
                 "Rp 11.500,-",
                 11500,
                 "greenland.co.id",
@@ -335,7 +337,7 @@ class DummyApiService {
                 "Tempat sabun mandi cair 380 ml",
                 "https://user-images.githubusercontent.com/81003299/113379836-cc832b00-93a4-11eb-92fc-cc8342ad5c1d.png",
                 "https://user-images.githubusercontent.com/81003299/113385049-82547680-93b1-11eb-8b39-6af64f48c35c.png",
-                "Bathroom",
+                CategoryType.BATHROOM.desc,
                 "Rp 98.000,-",
                 98000,
                 "krisbow",
@@ -352,7 +354,7 @@ class DummyApiService {
                 "BATHTUB KAMAR MANDI FIBERGLASS MODEL: MICHAEL ANGELO 170x74x47 free packing kayu",
                 "https://user-images.githubusercontent.com/81003299/113379629-351dd800-93a4-11eb-9943-37c7a51f8a2d.png",
                 "https://user-images.githubusercontent.com/81003299/113385045-81bbe000-93b1-11eb-839f-255d23f44ab2.png",
-                "Bathroom",
+                CategoryType.BATHROOM.desc,
                 "Rp 2.000.000,-",
                 2000000,
                 "maumandi.co",
@@ -374,7 +376,7 @@ class DummyApiService {
                 "Shower masa kini dengan 4 tombol saluran air bisa untuk air panas dan dingin",
                 "https://user-images.githubusercontent.com/81003299/113379740-84fc9f00-93a4-11eb-96c2-ce0a8600c2fb.png",
                 "https://user-images.githubusercontent.com/81003299/113385048-81bbe000-93b1-11eb-9847-5d301b81c4ae.png",
-                "Bathroom",
+                CategoryType.BATHROOM.desc,
                 "Rp 1.650.000,-",
                 1650000,
                 "ryandaffastore.id",
@@ -397,7 +399,7 @@ class DummyApiService {
                 "Rak Handuk Dinding Toilet Aluminium Towel Soap Shampoo Bathroom Sabun Busa Kamar mandi multifungsi",
                 "https://user-images.githubusercontent.com/81003299/113379912-094f2200-93a5-11eb-864a-763e7175b605.png",
                 "https://user-images.githubusercontent.com/81003299/113385051-82ed0d00-93b1-11eb-9521-9addc0b9ee84.png",
-                "Bathroom",
+                CategoryType.BATHROOM.desc,
                 "Rp 53.000,-",
                 53000,
                 "gamaumandi.co",
@@ -416,7 +418,7 @@ class DummyApiService {
                 "Tenda Camping Tenda Gunung 2-3 Orang Portable SPEEDS",
                 "https://user-images.githubusercontent.com/81003299/113376136-3a2a5980-939b-11eb-9781-324256e5c860.PNG",
                 "https://user-images.githubusercontent.com/81003299/113385052-8385a380-93b1-11eb-859a-c7750e1fc3d3.png",
-                "Outdoor",
+                CategoryType.OUTDOOR.desc,
                 "Rp 162.000,-",
                 162000,
                 "ahlialam",
@@ -439,7 +441,7 @@ class DummyApiService {
                 "Paket Alat Masak Cooking Set dan plus Kompor Camping Nesting DS SY 200 Outdoor Nasting",
                 "https://user-images.githubusercontent.com/81003299/113376254-765dba00-939b-11eb-9811-126c8bb4f052.png",
                 "https://user-images.githubusercontent.com/81003299/113385050-82547680-93b1-11eb-87f9-56755fc2b51f.png",
-                "Outdoor",
+                CategoryType.OUTDOOR.desc,
                 "Rp 144.000,-",
                 144000,
                 "outdoorindo",
@@ -465,7 +467,7 @@ class DummyApiService {
                 "ACE HARDWARE - Soleil Kursi Outdoor & Ottoman Deluxe/ Set/ Set Meja Dan Kursi/ Furnitur Outdoor",
                 "https://user-images.githubusercontent.com/81003299/113377275-0e5ca300-939e-11eb-8520-78f1dad6feab.png",
                 "https://user-images.githubusercontent.com/81003299/113385050-82547680-93b1-11eb-87f9-56755fc2b51f.png",
-                "Outdoor",
+                CategoryType.OUTDOOR.desc,
                 "Rp 2.499.000,-",
                 2499000,
                 "outdoorindo",
@@ -488,7 +490,7 @@ class DummyApiService {
                 "Ayunan GANTUNG ROTAN SINTETIS JUMBO (diameter130)",
                 "https://user-images.githubusercontent.com/81003299/113377485-9a6eca80-939e-11eb-9690-45c8bc57506d.png",
                 "https://user-images.githubusercontent.com/81003299/113385044-81234980-93b1-11eb-8bd6-0b9996ec21de.png",
-                "Outdoor",
+                CategoryType.OUTDOOR.desc,
                 "Rp 1.499.000,-",
                 1499000,
                 "Teguhwow",
@@ -506,7 +508,7 @@ class DummyApiService {
                 "Promo murah SAUNG GAZEBO GLUGU KAYU KLAPA (pasang)",
                 "https://user-images.githubusercontent.com/81003299/113377609-fdf8f800-939e-11eb-9b0e-8483ffb0fb59.png",
                 "https://user-images.githubusercontent.com/81003299/113385048-81bbe000-93b1-11eb-9847-5d301b81c4ae.png",
-                "Outdoor",
+                CategoryType.OUTDOOR.desc,
                 "Rp 3.175.000,-",
                 3175000,
                 "gazebomaster",
@@ -527,7 +529,7 @@ class DummyApiService {
                 "Rhyme stoneware ancient altar tea strainer tea filter mesh",
                 "https://user-images.githubusercontent.com/81003299/113383653-977bd600-93ae-11eb-84cd-c54f48aaaf9b.png",
                 "https://user-images.githubusercontent.com/81003299/113385051-82ed0d00-93b1-11eb-9521-9addc0b9ee84.png",
-                "Accessories",
+                CategoryType.ACCESSORIES.desc,
                 "Rp 414.000,-",
                 414000,
                 "scky0.id",
@@ -544,7 +546,7 @@ class DummyApiService {
                 "Desain Aksesoris Dekorasi",
                 "https://user-images.githubusercontent.com/81003299/113383971-39032780-93af-11eb-87e9-6429347b12e4.png",
                 "https://user-images.githubusercontent.com/81003299/113385054-841e3a00-93b1-11eb-9c96-29ff6790513d.png",
-                "Accessories",
+                CategoryType.ACCESSORIES.desc,
                 "Rp 1.350.000",
                 1350000,
                 "FZ001.id",
@@ -562,7 +564,7 @@ class DummyApiService {
                 "European-style small ornaments, wine cabinets, accessories, desk porch shelf, home living room model room, stylish and simple furnishings",
                 "https://user-images.githubusercontent.com/81003299/113384195-bb8be700-93af-11eb-90af-a12a8bc3cb8e.png",
                 "https://user-images.githubusercontent.com/81003299/113385049-82547680-93b1-11eb-8b39-6af64f48c35c.png",
-                "Accessories",
+                CategoryType.ACCESSORIES.desc,
                 "Rp 1.300.000,-",
                 1300000,
                 "scky001.id",
@@ -581,7 +583,7 @@ class DummyApiService {
                 "Aksesoris Pasangan Kreatif Praktis Untuk Dekorasi Kamar Tidur",
                 "https://user-images.githubusercontent.com/81003299/113384443-3b19b600-93b0-11eb-875f-07a2ed1a1fb4.png",
                 "https://user-images.githubusercontent.com/81003299/113385054-841e3a00-93b1-11eb-9c96-29ff6790513d.png",
-                "Accessories",
+                CategoryType.ACCESSORIES.desc,
                 "Rp 1.700.000,-",
                 1700000,
                 "scky4.id",
@@ -600,7 +602,7 @@ class DummyApiService {
                 "10 Pcs Aksesoris Ukiran Kayu Motif Bunga Gaya Eropa Untuk Sudut Furnitur",
                 "https://user-images.githubusercontent.com/81003299/113384572-8df36d80-93b0-11eb-87b7-7295c49173cf.png",
                 "https://user-images.githubusercontent.com/81003299/113385043-7ff21c80-93b1-11eb-8410-9cb24faf602b.png",
-                "Accessories",
+                CategoryType.ACCESSORIES.desc,
                 "Rp 150.000,-",
                 150000,
                 "luckygirl3.id",
@@ -621,60 +623,54 @@ class DummyApiService {
 
     fun getLivingRoomList(): List<ProductResponse> {
         val listLivingRoom = ArrayList<ProductResponse>()
-        for (index in 0..4) {
-            listLivingRoom.add(
-                getAllProductsList()[index]
-            )
+        for (obj in getAllProductsList()) {
+            if(obj.category.equals(CategoryType.LIVINGROOM.desc))
+                listLivingRoom.add(obj)
         }
         return listLivingRoom
     }
 
     fun getBedRoomList(): List<ProductResponse> {
         val listBedRoom = ArrayList<ProductResponse>()
-        for (index in 5..9) {
-            listBedRoom.add(
-                getAllProductsList()[index]
-            )
+        for (obj in getAllProductsList()) {
+            if(obj.category.equals(CategoryType.BEDROOM.desc))
+                listBedRoom.add(obj)
         }
         return listBedRoom
     }
 
     fun getKitchenList(): List<ProductResponse> {
         val listKitchen = ArrayList<ProductResponse>()
-        for (index in 10..14) {
-            listKitchen.add(
-                getAllProductsList()[index]
-            )
+        for (obj in getAllProductsList()) {
+            if(obj.category.equals(CategoryType.KITCHEN.desc))
+                listKitchen.add(obj)
         }
         return listKitchen
     }
 
     fun getBathroomList(): List<ProductResponse> {
         val listBathRoom = ArrayList<ProductResponse>()
-        for (index in 15..19) {
-            listBathRoom.add(
-                getAllProductsList()[index]
-            )
+        for (obj in getAllProductsList()) {
+            if(obj.category.equals(CategoryType.BATHROOM.desc))
+                listBathRoom.add(obj)
         }
         return listBathRoom
     }
 
     fun getOutdoorList(): List<ProductResponse> {
         val listOutdoor = ArrayList<ProductResponse>()
-        for (index in 20..24) {
-            listOutdoor.add(
-                getAllProductsList()[index]
-            )
+        for (obj in getAllProductsList()) {
+            if(obj.category.equals(CategoryType.OUTDOOR.desc))
+                listOutdoor.add(obj)
         }
         return listOutdoor
     }
 
     fun getAccessoriesList(): List<ProductResponse> {
         val listAccessories = ArrayList<ProductResponse>()
-        for (index in 25..29) {
-            listAccessories.add(
-                getAllProductsList()[index]
-            )
+        for (obj in getAllProductsList()) {
+            if(obj.category.equals(CategoryType.ACCESSORIES.desc))
+                listAccessories.add(obj)
         }
         return listAccessories
     }
@@ -699,6 +695,18 @@ class DummyApiService {
             )
         }
         return listNewProduct
+    }
+
+    fun getSearchProducts(query: String): List<ProductResponse> {
+        val listOfSearch = ArrayList<ProductResponse>()
+        val allProducts: List<ProductResponse> = getAllProductsList()
+        Log.d("Dummy Api Service Debug", allProducts.toString())
+        for (product in allProducts) {
+            if (product.title?.contains(query, true) == true)
+                listOfSearch.add(product)
+        }
+        Log.d("Dummy Api Service Debug", listOfSearch.toString())
+        return listOfSearch
     }
 
     fun getAllDiscount(): List<String> {
