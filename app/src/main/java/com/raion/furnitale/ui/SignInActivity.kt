@@ -20,7 +20,7 @@ import com.shashank.sony.fancytoastlib.FancyToast
 import java.lang.Exception
 
 class SignInActivity : AppCompatActivity() {
-    private val RC_SIGN_IN = 1
+    private val RC_SIGN_IN = 2
     private var mGoogleSignInClient: GoogleSignInClient? = null
     private lateinit var gso: GoogleSignInOptions
     private lateinit var mAuth: FirebaseAuth
@@ -36,7 +36,7 @@ class SignInActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken(getString(R.string.google_api_key))
             .requestEmail()
             .build()
 
@@ -77,6 +77,7 @@ class SignInActivity : AppCompatActivity() {
                 val sweetError = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
                     .setTitleText(getString(R.string.login_failed))
                 sweetError.show()
+                Log.e("Google Account Fail", e.toString())
             }
         }
     }
