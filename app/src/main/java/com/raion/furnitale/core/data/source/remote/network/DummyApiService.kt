@@ -1,6 +1,5 @@
 package com.raion.furnitale.core.data.source.remote.network
 
-import android.util.Log
 import com.raion.furnitale.core.data.source.remote.response.ProductResponse
 import com.raion.furnitale.core.utils.CategoryType
 
@@ -699,13 +698,10 @@ class DummyApiService {
 
     fun getSearchProducts(query: String): List<ProductResponse> {
         val listOfSearch = ArrayList<ProductResponse>()
-        val allProducts: List<ProductResponse> = getAllProductsList()
-        Log.d("Dummy Api Service Debug", allProducts.toString())
-        for (product in allProducts) {
-            if (product.title?.contains(query, true) == true)
-                listOfSearch.add(product)
+        getAllProductsList().forEach { productResponse ->
+            if (productResponse.title?.contains(query, true) == true)
+                listOfSearch.add(productResponse)
         }
-        Log.d("Dummy Api Service Debug", listOfSearch.toString())
         return listOfSearch
     }
 

@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.raion.furnitale.core.data.Resource
@@ -20,7 +19,7 @@ class SearchFragment : Fragment() {
     private var _searchBinding: SearchFragmentBinding? = null
     private val searchBinding get() = _searchBinding
     private val searchViewModel: SearchViewModel by viewModel()
-    private val query: SearchFragmentArgs by navArgs()
+    private val args: SearchFragmentArgs by navArgs()
     private val searchAdapter: SearchAdapter by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -37,12 +36,12 @@ class SearchFragment : Fragment() {
             adapter = searchAdapter
         }
         observeSearch()
-        Log.d("Search Debug", query.toString())
+        Log.d("Search Debug", args.query.toString())
         Log.d("Search Debug", searchAdapter.searchList.toString())
     }
 
     private fun observeSearch() {
-        searchViewModel.getSearchProducts(query.toString()).observe(viewLifecycleOwner, {
+        searchViewModel.getSearchProducts(args.query.toString()).observe(viewLifecycleOwner, {
             when (it) {
                 is Resource.Error -> {}
                 is Resource.Loading -> {}
