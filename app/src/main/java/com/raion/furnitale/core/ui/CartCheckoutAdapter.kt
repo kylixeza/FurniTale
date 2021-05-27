@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.raion.furnitale.core.domain.model.Product
 import com.raion.furnitale.databinding.ItemListCartCheckoutBinding
+import com.raion.furnitale.utils.Formatting
 
 class CartCheckoutAdapter: RecyclerView.Adapter<CartCheckoutAdapter.CartCheckoutViewHolder>() {
 
@@ -33,7 +34,7 @@ class CartCheckoutAdapter: RecyclerView.Adapter<CartCheckoutAdapter.CartCheckout
         fun bind(product: Product) {
             view.data = product
             val price = product.totalStuffs?.let { product.realPrice?.times(it) }
-            view.tvPriceCartCheckout.text = "Rp $price"
+            view.tvPriceCartCheckout.text = "Rp ${price?.let { Formatting.rupiahCurrencyFormatting(it) }}"
         }
     }
 }

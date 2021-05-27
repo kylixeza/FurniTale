@@ -25,6 +25,7 @@ import com.raion.furnitale.core.ui.CartAdapter
 import com.raion.furnitale.core.ui.CartCheckoutAdapter
 import com.raion.furnitale.databinding.CartFragmentBinding
 import com.raion.furnitale.ui.MainActivity
+import com.raion.furnitale.utils.Formatting
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -53,8 +54,6 @@ class CartFragment : Fragment() {
 
         cartAdapter = activity?.let { CartAdapter(cartViewModel, it) }!!
 
-        observeCart(account)
-
         cartBinding?.rvCart?.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = cartAdapter
@@ -64,6 +63,8 @@ class CartFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = cartCheckoutAdapter
         }
+
+        observeCart(account)
     }
 
     private fun observeCart(account: GoogleSignInAccount?) {
@@ -82,7 +83,7 @@ class CartFragment : Fragment() {
             cartCheckoutAdapter.setData(it)
             cartAdapter.settAllData(it)
             totalPrice(it)
-            if (it.isNotEmpty()) {
+            if (!it.isNullOrEmpty()) {
                 checkout()
             }
         })
@@ -94,7 +95,7 @@ class CartFragment : Fragment() {
         for (product in listProduct) {
             totalPrice += (product.totalStuffs?.let { product.realPrice?.times(it) }!!)
         }
-        cartBinding?.includeCartCheckout?.tvPaymentTotalReal?.text = "Rp $totalPrice"
+        cartBinding?.includeCartCheckout?.tvPaymentTotalReal?.text = "Rp ${Formatting.rupiahCurrencyFormatting(totalPrice)}"
     }
     
     private fun checkout() {
@@ -154,7 +155,12 @@ class CartFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
+        cartBinding?.apply {
+            includeCartCheckout.buttonCheckout.removeAllViews()
+            rvCart.adapter = null
+            includeCartCheckout.rvAllCheckout.adapter = null
+        }
         _cartBinding = null
+        super.onDestroyView()
     }
 }
