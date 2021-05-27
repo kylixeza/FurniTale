@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "366170550007",
+    "project_id": "furnitale-dd857",
+    "storage_bucket": "furnitale-dd857.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366170550007:android:e2ecb67618ade5869c6df2",
+        "android_client_info": {
+          "package_name": "com.raion.furnitale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366170550007-c2ob7mhs4tsbtjb8k1r3l7a7jcs12vso.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raion.furnitale",
+            "certificate_hash": "0da10e9eae2967aa46143852215b014f4a164412"
+          }
+        },
+        {
+          "client_id": "366170550007-euk1iehc5efm4m28lne0o5vcg47ljatt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raion.furnitale",
+            "certificate_hash": "d85c69073e6994093ccefa085bb62180ffdec108"
+          }
+        },
+        {
+          "client_id": "366170550007-uv6fqif1cbnfdv821eppa6pgjjn5dt3r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnx2xECjeAk9FdYEr5uiveS9cQK3kFkGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366170550007-uv6fqif1cbnfdv821eppa6pgjjn5dt3r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
