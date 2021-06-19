@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.categories.bathroom.BathroomFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -10,4 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <include
+        android:id="@+id/include_default_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/default_error_layout"/>
+
+    <com.victor.loading.rotate.RotateLoading
+        android:id="@+id/loading_bathroom"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        app:loading_color="@color/color_primary"/>
 </FrameLayout>

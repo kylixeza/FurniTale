@@ -68,4 +68,7 @@
     <string name="payment_total">PAYMENT TOTAL</string>
     <string name="empty_cart">YOUR CART STILL EMPTY ADD SOME PRODUCTS</string>
 
+
+    <!--show state-->
+    <string name="message_if_null">Data Not Found</string>
 </resources>

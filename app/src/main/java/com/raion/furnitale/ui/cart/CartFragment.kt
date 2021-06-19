@@ -156,7 +156,6 @@ class CartFragment : Fragment() {
 
     override fun onDestroyView() {
         cartBinding?.apply {
-            includeCartCheckout.buttonCheckout.removeAllViews()
             rvCart.adapter = null
             includeCartCheckout.rvAllCheckout.adapter = null
         }

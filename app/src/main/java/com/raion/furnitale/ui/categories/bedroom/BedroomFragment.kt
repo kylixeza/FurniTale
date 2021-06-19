@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import com.raion.furnitale.R
 import com.raion.furnitale.core.data.Resource
 import com.raion.furnitale.core.ui.CategoryAdapter
 import com.raion.furnitale.databinding.BedroomFragmentBinding
+import com.raion.furnitale.utils.ShowState
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class BedroomFragment : Fragment() {
+class BedroomFragment : Fragment(), ShowState<BedroomFragmentBinding> {
 
     private val bedRoomViewModel: BedroomViewModel by viewModel()
     private var _bedRoomBinding: BedroomFragmentBinding? = null
@@ -40,15 +42,10 @@ class BedroomFragment : Fragment() {
             when(it) {
                 is Resource.Success -> {
                     it.data?.let { it1 -> bedRoomAdapter.setAll(it1) }
+                    onResourceSuccess(bedRoomBinding)
                 }
-
-                is Resource.Loading -> {
-
-                }
-
-                is Resource.Error -> {
-
-                }
+                is Resource.Loading -> onResourceLoading(bedRoomBinding)
+                is Resource.Error -> onResourceFailed(bedRoomBinding, it.message)
             }
         })
     }
@@ -56,5 +53,39 @@ class BedroomFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _bedRoomBinding = null
+    }
+
+    override fun onResourceSuccess(binding: BedroomFragmentBinding?) {
+        binding?.apply {
+            loadingBedroom.stop()
+            includeDefaultError.apply {
+                ivError.visibility = gone
+                tvErrorMessage.visibility = gone
+            }
+            rvBedroom.visibility = visible
+        }
+    }
+
+    override fun onResourceFailed(binding: BedroomFragmentBinding?, message: String?) {
+        binding?.apply {
+            loadingBedroom.stop()
+            rvBedroom.visibility = gone
+            includeDefaultError.apply {
+                ivError.visibility = visible
+                tvErrorMessage.text = message?: resources.getText(R.string.message_if_null)
+                tvErrorMessage.visibility = visible
+            }
+        }
+    }
+
+    override fun onResourceLoading(binding: BedroomFragmentBinding?) {
+        binding?.apply {
+            loadingBedroom.start()
+            rvBedroom.visibility = gone
+            includeDefaultError.apply {
+                ivError.visibility = gone
+                tvErrorMessage.visibility = gone
+            }
+        }
     }
 }
