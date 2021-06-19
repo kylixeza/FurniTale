@@ -2,6 +2,7 @@ package com.raion.furnitale.utils
 
 import android.app.Application
 import com.raion.furnitale.core.di.databaseModule
+import com.raion.furnitale.core.di.firestoreModule
 import com.raion.furnitale.core.di.repositoryModule
 import com.raion.furnitale.ui.di.adapterModule
 import com.raion.furnitale.ui.di.useCaseModule
@@ -20,6 +21,7 @@ class MyApplication: Application() {
             modules(
                 listOf(
                     databaseModule,
+                    firestoreModule,
                     repositoryModule,
                     useCaseModule,
                     viewModelModule,

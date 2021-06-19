@@ -1,5 +1,7 @@
 package com.raion.furnitale.core.data.source.remote.network
 
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.raion.furnitale.core.data.source.remote.response.ProductResponse
 import com.raion.furnitale.core.utils.CategoryType
 
@@ -413,7 +415,7 @@ class DummyApiService {
             ProductResponse(
                 "",
                 20,
-                "Tenda Camping / Tenda Gunung",
+                "Tenda Camping (Tenda Gunung)",
                 "Tenda Camping Tenda Gunung 2-3 Orang Portable SPEEDS",
                 "https://user-images.githubusercontent.com/81003299/113376136-3a2a5980-939b-11eb-9781-324256e5c860.PNG",
                 "https://user-images.githubusercontent.com/81003299/113385052-8385a380-93b1-11eb-859a-c7750e1fc3d3.png",

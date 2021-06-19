@@ -2,6 +2,9 @@ package com.raion.furnitale.core.di
 
 import androidx.room.Room
 import com.raion.furnitale.core.data.ProductRepository
+import com.raion.furnitale.core.data.source.firestore.FirestoreDataSource
+import com.raion.furnitale.core.data.source.firestore.network.FirestoreClient
+import com.raion.furnitale.core.data.source.firestore.network.FirestorePlayground
 import com.raion.furnitale.core.data.source.local.LocalDataSource
 import com.raion.furnitale.core.data.source.local.room.ProductDatabase
 import com.raion.furnitale.core.data.source.remote.RemoteDataSource
@@ -29,15 +32,23 @@ val databaseModule = module {
     }
 }
 
+val firestoreModule = module {
+    single<FirestoreClient> {
+        FirestorePlayground()
+    }
+
+}
 
 val repositoryModule = module {
     single { DummyApiService() }
     single { RemoteDataSource(get()) }
     single { LocalDataSource(get()) }
+    single { FirestoreDataSource(get()) }
     single<IProductRepository> {
         ProductRepository(
             get(),
             get(),
+            get()
         )
     }
 }

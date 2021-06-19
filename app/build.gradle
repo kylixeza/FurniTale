@@ -114,6 +114,8 @@ dependencies {
     //Coroutine Flow
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    implementation 'com.github.brotoo25:firestore-coroutines:1.0.2'
+
 
     //Firebase
     implementation 'com.google.firebase:firebase-analytics-ktx'
@@ -123,6 +125,10 @@ dependencies {
 
     //GMS
     implementation "com.google.android.gms:play-services-auth:$google_auth_version"
+
+
+    //Firestore
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 
     //Lottie
     implementation "com.airbnb.android:lottie:$lottie_version"
