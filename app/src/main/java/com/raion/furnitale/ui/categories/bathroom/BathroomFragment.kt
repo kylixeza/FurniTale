@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.viewbinding.library.fragment.viewBinding
 import androidx.recyclerview.widget.GridLayoutManager
 import com.raion.furnitale.R
 import com.raion.furnitale.core.data.Resource
@@ -16,16 +17,14 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class BathroomFragment : Fragment(), ShowState<BathroomFragmentBinding> {
 
     private val bathroomViewModel: BathroomViewModel by viewModel()
-    private var _bathRoomBinding: BathroomFragmentBinding? = null
-    private val bathRoomBinding get() = _bathRoomBinding
+    private val bathRoomBinding by viewBinding<BathroomFragmentBinding>()
     private lateinit var bathRoomAdapter: CategoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _bathRoomBinding = BathroomFragmentBinding.inflate(layoutInflater, container, false)
-        return bathRoomBinding?.root
+        return inflater.inflate(R.layout.bathroom_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +32,7 @@ class BathroomFragment : Fragment(), ShowState<BathroomFragmentBinding> {
 
         bathRoomAdapter = activity?.let { CategoryAdapter(it) }!!
 
-        bathRoomBinding?.rvBathroom?.apply {
+        bathRoomBinding.rvBathroom.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = bathRoomAdapter
         }
@@ -48,11 +47,6 @@ class BathroomFragment : Fragment(), ShowState<BathroomFragmentBinding> {
                 }
             }
         })
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _bathRoomBinding = null
     }
 
     override fun onResourceSuccess(binding: BathroomFragmentBinding?) {

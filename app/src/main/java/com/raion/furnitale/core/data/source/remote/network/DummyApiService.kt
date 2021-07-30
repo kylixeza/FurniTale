@@ -108,7 +108,7 @@ class DummyApiService {
                 4399000,
                 "sleep.center",
                 "Jakarta Barat",
-                " SUPERFIT  VULCAN\n\n Spesifikasi :\n• Couple Comfort Spring : pegas yg disusun secara vertikal untuk meredam guncangan" +
+                "SUPERFIT  VULCAN\n\n Spesifikasi :\n• Couple Comfort Spring : pegas yg disusun secara vertikal untuk meredam guncangan" +
                         "\n• Double Guard : Rangkaian kawat baja untuk memperkuat setiap sisi kasur" +
                         "\n• Extra Plush : Lapisan busa ekstra empuk untuk kenyamanan saat tidur" +
                         "\n • Euro Top : Lapisan multi layers untuk kesempurnaan feel kasur" +
@@ -158,7 +158,8 @@ class DummyApiService {
         "Harga tersebut belum termasuk ongkir produk (berat/ongkir yang tertera di aplikasi hanya untuk mengirim invoice/nota).. " +
                 "\nUntuk Info ongkir produk mohon chat kami terlebih dahulu.. " +
                 "\nHati-hati, jangan tergiur dg harga yg murah tetapi kualitas blm jelas " +
-                "\nKarena utk produk kerajinan sperti mebel jepara, setiap penjual memiliki standar kualitas yg berbeda-beda. tdk sperti mobil/motor baru, walaupun berbeda dealer tetapi kualitas tetap sama")
+                "\nKarena utk produk kerajinan sperti mebel jepara, setiap penjual memiliki standar kualitas yg berbeda-beda. tdk sperti mobil/motor baru, walaupun berbeda dealer tetapi kualitas tetap sama"
+            )
         )
 
         listProducts.add(

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.viewbinding.library.fragment.viewBinding
 import android.widget.SearchView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,8 +21,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
-    private var _homeBinding: HomeFragmentBinding? = null
-    private val homeBinding get() = _homeBinding
+    private val homeBinding by viewBinding<HomeFragmentBinding>()
     private val homeViewModel: HomeViewModel by viewModel()
     private val selectionAdapter: SelectionAdapter by inject()
     private val newProductAdapter: NewProductAdapter by inject()
@@ -30,13 +30,12 @@ class HomeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        _homeBinding = HomeFragmentBinding.inflate(inflater, container, false)
-        return homeBinding?.root
+        return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        homeBinding?.search?.apply {
+        homeBinding.search.apply {
             queryHint = "Looking For What?"
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
@@ -50,7 +49,7 @@ class HomeFragment : Fragment() {
             })
         }
 
-        homeBinding?.apply {
+        homeBinding.apply {
             rvDiscount.apply {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 adapter = discountAdapter
@@ -111,7 +110,7 @@ class HomeFragment : Fragment() {
             when(it) {
                 is Resource.Error -> {}
                 is Resource.Loading -> {
-                    homeBinding?.apply {
+                    homeBinding.apply {
                         loadingRvSelection.loadingColor = R.color.color_primary
                         loadingRvSelection2.loadingColor = R.color.color_primary
 
@@ -120,7 +119,7 @@ class HomeFragment : Fragment() {
                     }
                 }
                 is Resource.Success -> {
-                    homeBinding?.apply {
+                    homeBinding.apply {
                         loadingRvSelection.stop()
                         loadingRvSelection2.stop()
                     }
@@ -133,14 +132,14 @@ class HomeFragment : Fragment() {
             when(it) {
                 is Resource.Error -> {}
                 is Resource.Loading -> {
-                    homeBinding?.apply {
+                    homeBinding.apply {
                         loadingRvNew.loadingColor = R.color.color_primary
                         loadingRvNew.start()
                     }
                 }
                 is Resource.Success -> {
                     it.data?.let { it1 -> newProductAdapter.setList(it1) }
-                    homeBinding?.loadingRvNew?.stop()
+                    homeBinding.loadingRvNew.stop()
                 }
             }
         })

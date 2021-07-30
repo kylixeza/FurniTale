@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.viewbinding.library.fragment.viewBinding
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,16 +36,14 @@ class CartFragment : Fragment() {
         private const val ORDER_SUCCESS = 101
     }
 
-    private var _cartBinding: CartFragmentBinding? = null
-    private val cartBinding get() = _cartBinding
+    private val cartBinding by viewBinding<CartFragmentBinding>()
     private val cartViewModel: CartViewModel by viewModel()
-    private lateinit var cartAdapter: CartAdapter
+    private val cartAdapter: CartAdapter by inject()
     private val cartCheckoutAdapter: CartCheckoutAdapter by inject()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        _cartBinding = CartFragmentBinding.inflate(layoutInflater, container, false)
-        return cartBinding?.root
+        return inflater.inflate(R.layout.cart_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,14 +51,12 @@ class CartFragment : Fragment() {
 
         val account = GoogleSignIn.getLastSignedInAccount(context)
 
-        cartAdapter = activity?.let { CartAdapter(cartViewModel, it) }!!
-
-        cartBinding?.rvCart?.apply {
+        cartBinding.rvCart.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = cartAdapter
         }
 
-        cartBinding?.includeCartCheckout?.rvAllCheckout?.apply {
+        cartBinding.includeCartCheckout.rvAllCheckout.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = cartCheckoutAdapter
         }
@@ -70,12 +67,12 @@ class CartFragment : Fragment() {
     private fun observeCart(account: GoogleSignInAccount?) {
         cartViewModel.getCartList(account?.email).observe(viewLifecycleOwner, {
             if (it.isNullOrEmpty()) {
-                cartBinding?.includeEmptyCart?.apply {
+                cartBinding.includeEmptyCart.apply {
                     ivAddCart.visibility = View.VISIBLE
                     tvAddCart.visibility = View.VISIBLE
                 }
             } else {
-                cartBinding?.includeEmptyCart?.apply {
+                cartBinding.includeEmptyCart.apply {
                     ivAddCart.visibility = View.INVISIBLE
                     tvAddCart.visibility = View.INVISIBLE
                 }
@@ -95,11 +92,11 @@ class CartFragment : Fragment() {
         for (product in listProduct) {
             totalPrice += (product.totalStuffs?.let { product.realPrice?.times(it) }!!)
         }
-        cartBinding?.includeCartCheckout?.tvPaymentTotalReal?.text = "Rp ${Formatting.rupiahCurrencyFormatting(totalPrice)}"
+        cartBinding.includeCartCheckout.tvPaymentTotalReal.text = "Rp ${Formatting.rupiahCurrencyFormatting(totalPrice)}"
     }
     
     private fun checkout() {
-        cartBinding?.includeCartCheckout?.buttonCheckout?.setOnClickListener {
+        cartBinding.includeCartCheckout.buttonCheckout.setOnClickListener {
             val checkoutDialog = SweetAlertDialog(activity, SweetAlertDialog.NORMAL_TYPE)
             checkoutDialog.apply {
                 titleText = "Checkout Products?"
@@ -122,6 +119,7 @@ class CartFragment : Fragment() {
         }
     }
 
+    @SuppressLint("UnspecifiedImmutableFlag")
     private fun buildNotification() {
         val channelId = "order_success_channel"
         val channelName = "order_success_furnitale"
@@ -152,14 +150,5 @@ class CartFragment : Fragment() {
 
         val notification = mBuilder.build()
         notificationManagerCompat.notify(ORDER_SUCCESS, notification)
-    }
-
-    override fun onDestroyView() {
-        cartBinding?.apply {
-            rvCart.adapter = null
-            includeCartCheckout.rvAllCheckout.adapter = null
-        }
-        _cartBinding = null
-        super.onDestroyView()
     }
 }

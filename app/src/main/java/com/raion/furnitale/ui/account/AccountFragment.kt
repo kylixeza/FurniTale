@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.viewbinding.library.fragment.viewBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -18,8 +19,7 @@ import com.raion.furnitale.ui.SignInActivity
 
 class AccountFragment : Fragment() {
 
-    private var _accountBinding: AccountFragmentBinding? = null
-    private val accountBinding get() = _accountBinding
+    private val accountBinding: AccountFragmentBinding by viewBinding()
 
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private val auth by lazy {
@@ -28,8 +28,7 @@ class AccountFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        _accountBinding = AccountFragmentBinding.inflate(layoutInflater, container, false)
-        return accountBinding?.root
+        return inflater.inflate(R.layout.account_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,21 +47,21 @@ class AccountFragment : Fragment() {
             val personName = account.displayName
             val personEmail = account.email
 
-            accountBinding?.includeAccountDetail?.apply {
+            accountBinding.includeAccountDetail.apply {
                 tvProfileName.text = personName
                 tvMemberSince.text = personEmail
             }
 
             val avatar = account.photoUrl
-            accountBinding?.let {
+            accountBinding.let {
                 Glide.with(this)
                     .load(avatar)
                     .apply(RequestOptions.circleCropTransform())
-                    .into(accountBinding?.includeAccountDetail?.ivProfile!!)
+                    .into(accountBinding.includeAccountDetail.ivProfile)
             }
         }
 
-        accountBinding?.includeAccountSetting?.btnLogout?.setOnClickListener {
+        accountBinding.includeAccountSetting.btnLogout.setOnClickListener {
             signOut()
         }
     }
@@ -75,11 +74,4 @@ class AccountFragment : Fragment() {
             activity?.finish()
         }
     }
-
-    override fun onDestroyView() {
-        _accountBinding = null
-        super.onDestroyView()
-    }
-
-
 }

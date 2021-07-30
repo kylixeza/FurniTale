@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.viewbinding.library.fragment.viewBinding
 import androidx.recyclerview.widget.GridLayoutManager
 import com.raion.furnitale.R
 import com.raion.furnitale.core.data.Resource
@@ -16,16 +17,15 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class OutdoorFragment : Fragment(), ShowState<OutdoorFragmentBinding> {
 
     private val outdoorViewModel: OutdoorViewModel by viewModel()
-    private var _outdoorBinding: OutdoorFragmentBinding? = null
-    private val outdoorBinding get() = _outdoorBinding
+    private val outdoorBinding by viewBinding<OutdoorFragmentBinding>()
     private lateinit var outdoorAdapter: CategoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _outdoorBinding = OutdoorFragmentBinding.inflate(layoutInflater, container, false)
-        return outdoorBinding?.root
+        return inflater.inflate(R.layout.outdoor_fragment, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class OutdoorFragment : Fragment(), ShowState<OutdoorFragmentBinding> {
 
         outdoorAdapter = activity?.let { CategoryAdapter(it) }!!
 
-        outdoorBinding?.rvOutdoor?.apply {
+        outdoorBinding.rvOutdoor.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = outdoorAdapter
         }
@@ -48,11 +48,6 @@ class OutdoorFragment : Fragment(), ShowState<OutdoorFragmentBinding> {
                 }
             }
         })
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _outdoorBinding = null
     }
 
     override fun onResourceSuccess(binding: OutdoorFragmentBinding?) {

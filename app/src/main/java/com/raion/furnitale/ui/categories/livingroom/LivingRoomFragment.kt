@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.viewbinding.library.fragment.viewBinding
 import androidx.recyclerview.widget.GridLayoutManager
 import com.raion.furnitale.R
 import com.raion.furnitale.core.data.Resource
@@ -16,16 +17,14 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class LivingRoomFragment : Fragment(), ShowState<LivingRoomFragmentBinding> {
 
     private val livingRoomViewModel: LivingRoomViewModel by viewModel()
-    private var _livingRoomBinding: LivingRoomFragmentBinding? = null
-    private val livingRoomBinding get() = _livingRoomBinding
+    private val livingRoomBinding by viewBinding<LivingRoomFragmentBinding>()
     private lateinit var livingRoomAdapter: CategoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _livingRoomBinding = LivingRoomFragmentBinding.inflate(layoutInflater, container, false)
-        return livingRoomBinding?.root
+        return inflater.inflate(R.layout.living_room_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +32,7 @@ class LivingRoomFragment : Fragment(), ShowState<LivingRoomFragmentBinding> {
 
         livingRoomAdapter = activity?.let { CategoryAdapter(it) }!!
 
-        livingRoomBinding?.rvLivingRoom?.apply {
+        livingRoomBinding.rvLivingRoom.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = livingRoomAdapter
         }
@@ -48,11 +47,6 @@ class LivingRoomFragment : Fragment(), ShowState<LivingRoomFragmentBinding> {
                 is Resource.Error -> onResourceFailed(livingRoomBinding, it.message)
             }
         })
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _livingRoomBinding = null
     }
 
     override fun onResourceSuccess(binding: LivingRoomFragmentBinding?) {

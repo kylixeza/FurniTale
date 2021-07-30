@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.viewbinding.library.fragment.viewBinding
 import androidx.recyclerview.widget.GridLayoutManager
 import com.raion.furnitale.R
 import com.raion.furnitale.core.data.Resource
@@ -16,16 +17,14 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class BedroomFragment : Fragment(), ShowState<BedroomFragmentBinding> {
 
     private val bedRoomViewModel: BedroomViewModel by viewModel()
-    private var _bedRoomBinding: BedroomFragmentBinding? = null
-    private val bedRoomBinding get() = _bedRoomBinding
+    private val bedRoomBinding by viewBinding<BedroomFragmentBinding>()
     private lateinit var bedRoomAdapter: CategoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _bedRoomBinding = BedroomFragmentBinding.inflate(layoutInflater, container, false)
-        return bedRoomBinding?.root
+        return inflater.inflate(R.layout.bedroom_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +32,7 @@ class BedroomFragment : Fragment(), ShowState<BedroomFragmentBinding> {
 
         bedRoomAdapter = activity?.let { CategoryAdapter(it) }!!
 
-        bedRoomBinding?.rvBedroom?.apply {
+        bedRoomBinding.rvBedroom.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = bedRoomAdapter
         }
@@ -50,10 +49,6 @@ class BedroomFragment : Fragment(), ShowState<BedroomFragmentBinding> {
         })
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _bedRoomBinding = null
-    }
 
     override fun onResourceSuccess(binding: BedroomFragmentBinding?) {
         binding?.apply {
